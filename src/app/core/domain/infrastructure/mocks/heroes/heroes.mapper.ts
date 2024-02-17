@@ -4,7 +4,7 @@ import { Heroes } from '../../../entity/heroes';
 export class HeroesMapper {
   static mapFrom(heroModel: HeroesModel): Heroes {
     return {
-      ...heroModel,
+      id: heroModel.id,
       nombre: heroModel.Name,
       alias: heroModel.Alias,
       descripcion: heroModel.Description,
@@ -14,6 +14,7 @@ export class HeroesMapper {
   }
   static mapTo(hero: Heroes): HeroesModel {
     return {
+      id: hero.id,
       Name: hero.nombre,
       Alias: hero.alias,
       Description: hero.descripcion,

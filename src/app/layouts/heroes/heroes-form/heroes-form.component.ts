@@ -1,4 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -11,9 +18,6 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDialogActions } from '@angular/material/dialog';
 import { DialogService } from '../../../shared/components/ui-common/dialog/dialog.service';
-import { Store } from '@ngxs/store';
-import { HeroesService } from '../../../core/domain/infrastructure/mocks/heroes/heroes.service';
-import { Heroes } from '../../../core/domain/entity/heroes';
 
 @Component({
   selector: 'heroes-form',
@@ -31,37 +35,41 @@ import { Heroes } from '../../../core/domain/entity/heroes';
   styleUrl: './heroes-form.component.css',
 })
 export class HeroesFormComponent implements OnInit {
+  @Output() outputData = new EventEmitter();
+  @Input() inputData!: [{ name: string; value: any }];
   private readonly dialogService = inject(DialogService);
-  private readonly store = inject(Store);
-  private readonly heroesService = inject(HeroesService);
   heroesForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     alias: new FormControl('', [Validators.required]),
     descripcion: new FormControl('', [Validators.required]),
-    imagen_url: new FormControl('', [Validators.required]),
+    imagen_url: new FormControl(''),
     historia: new FormControl('', [Validators.required]),
   });
+
   constructor() {}
+
   //IMAGEWN https://medium.com/@chemakhi.imad/angula-material-image-input-0daf3ea370f0
   ngOnInit(): void {
-    //VIENE ID Y SE MONTA FORMULARIO.
+    if (this.inputData) {
+      this.setFormValues(this.inputData);
+    }
   }
 
   submitForm() {
     if (this.heroesForm.valid) {
-      const hero = {
-        id: undefined,
-        ...this.heroesForm.getRawValue(),
-      } as Heroes;
-      console.log(hero);
-      this.heroesService.post(hero).subscribe(data => {
-        console.log(data);
-        //save data then go back.
-      });
+      this.outputData.emit(this.heroesForm.getRawValue() as any);
     }
   }
 
   closeDialog() {
     this.dialogService.closeDialog();
+  }
+
+  private setFormValues(inputData: [{ name: string; value: any }]) {
+    let inputDataObject: { [key: string]: any } = {};
+    for (let item of inputData) {
+      inputDataObject = { ...item.value };
+    }
+    this.heroesForm.patchValue({ ...inputDataObject });
   }
 }

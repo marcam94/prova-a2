@@ -2,7 +2,12 @@ import { inject, Injectable } from '@angular/core';
 import { HeroesService } from '../../../core/domain/infrastructure/mocks/heroes/heroes.service';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Heroes } from '../../../core/domain/entity/heroes';
-import { DeleteHeroes, GetHeroes, UpdateHeroes } from './heroes.action';
+import {
+  AddHero,
+  DeleteHeroes,
+  GetHeroes,
+  UpdateHeroes,
+} from './heroes.action';
 import { tap } from 'rxjs';
 
 export class HeroesStateModel {
@@ -18,6 +23,7 @@ export class HeroesStateModel {
 @Injectable()
 export class HeroesState {
   private readonly heroesService = inject(HeroesService);
+
   constructor() {}
 
   @Selector()
@@ -28,46 +34,40 @@ export class HeroesState {
   @Action(GetHeroes)
   getAll(ctx: StateContext<HeroesStateModel>) {
     return this.heroesService.getAllHeroes().pipe(
-      tap(returnData => {
+      tap(data => {
         const state = ctx.getState();
-        console.log(returnData);
+        console.log(data);
         ctx.setState({
           ...state,
-          heroes: returnData, //here the data coming from the API will get assigned to the users variable inside the appstate
+          heroes: data,
         });
       })
     );
   }
 
-  /*  @Action(AddHero)
+  @Action(AddHero)
   addDataToState(ctx: StateContext<HeroesStateModel>, { payload }: AddHero) {
-    return this.heroesService.post(payload).pipe(
-      tap(returnData => {
-        const state = ctx.getState();
-        ctx.patchState({
-          heroes: [...state.heroes, returnData],
-        });
-      })
-    );
-  }*/
+    return this.heroesService.post(payload);
+  }
 
   @Action(UpdateHeroes)
   updateDataOfState(
     ctx: StateContext<HeroesStateModel>,
     { payload, id, i }: UpdateHeroes
   ) {
-    //TODO
-    /*   return this..updateUser(payload, i).pipe(tap(returnData => {
-      const state=ctx.getState();
+    return this.heroesService.put(payload, String(id)).pipe(
+      tap(returnData => {
+        const state = ctx.getState();
 
-      const userList = [...state.users];
-      userList[i]=payload;
+        const heroList = [...state.heroes];
+        heroList[i] = payload;
 
-      ctx.setState({
-        ...state,
-        users: userList,
-      });
-    }))*/
+        ctx.setState({
+          ...state,
+          heroes: heroList,
+        });
+      })
+    );
   }
 
   @Action(DeleteHeroes)

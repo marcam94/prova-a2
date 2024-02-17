@@ -1,4 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -11,14 +17,8 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { NgComponentOutlet } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-
-interface DialogData {
-  title: string;
-  [key: string]: any;
-  component?: any;
-}
+import { DialogOpt } from './dialog.service';
 
 @Component({
   selector: 'app-dialog',
@@ -33,7 +33,6 @@ interface DialogData {
     MatButton,
     MatDialogClose,
     MatLabel,
-    NgComponentOutlet,
     MatIcon,
     MatIconButton,
   ],
@@ -41,15 +40,26 @@ interface DialogData {
   styleUrl: './dialog.component.css',
 })
 export class DialogComponent implements OnInit {
+  @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true })
+  dynamicComponent!: ViewContainerRef;
+
   constructor(
-    public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogOpt,
+    public dialog: MatDialogRef<DialogComponent>
   ) {}
+
   ngOnInit() {
-    console.log(this);
+    this.loadComponent();
   }
 
-  onNoClick(): void {
-    this.dialogRef.close(this.data);
+  private loadComponent() {
+    this.dynamicComponent.clear();
+    const componentRef = this.dynamicComponent.createComponent(
+      this.data.component
+    );
+    componentRef.instance.inputData = this.data.inputData;
+    componentRef.instance.outputData.subscribe((res: any) =>
+      this.dialog.close(res)
+    );
   }
 }

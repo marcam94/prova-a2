@@ -1,8 +1,16 @@
 <div class="flex-1 p-28 flex flex-col gap-4">
   <div class="flex flex-row justify-start">
-    <button (click)="addNew()" mat-raised-button color="primary">Añadir</button>
-    <div class="m-auto">input</div>
+    <button (click)="addNewHero()" mat-raised-button color="primary">Añadir</button>
+    <div class="m-auto">
+      <mat-form-field class="example-form-field">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="text" [(ngModel)]="value">
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field></div>
   </div>
+  {{value}}
   <div class="flex flex-row flex-wrap gap-4 justify-start content-start">
     @for (heroes of allHeroes | async; track heroes.id) {
       <mat-card appearance="outlined" class="example-card">
@@ -27,7 +35,7 @@
             (click)="checkDetail(heroes.id)">
             Ver más
           </button>
-          <button mat-button>Editar</button>
+          <button (click)="editHero(heroes)" mat-button>Editar</button>
           <button (click)="deleteHero(heroes.id)"  mat-button>Eliminar</button>
         </mat-card-actions>
       </mat-card>

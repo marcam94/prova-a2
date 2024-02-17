@@ -10,14 +10,21 @@ import { HeroesMapper } from './heroes.mapper';
 })
 export class HeroesService {
   private readonly apiUrl = 'http://localhost:3000/Heroes';
-  private readonly httpClient = inject(HttpClient);
+  private readonly http = inject(HttpClient);
   constructor() {}
 
   getAllHeroes(): Observable<Heroes[]> {
-    return this.httpClient.get<HeroesModel[]>(this.apiUrl).pipe(
+    return this.http.get<HeroesModel[]>(this.apiUrl).pipe(
       map((response: HeroesModel[]) => response.map(HeroesMapper.mapFrom)),
-      /*  map((response: HeroesModel[]) => response),
-      map((heroes: HeroesModel) => HeroesMapper.mapFrom(heroes)),*/
+      catchError((error: any) => {
+        throw new Error(error);
+      })
+    );
+  }
+
+  getById(id: string): Observable<Heroes> {
+    return this.http.get<HeroesModel>(`${this.apiUrl}/${id}`).pipe(
+      map((response: HeroesModel) => HeroesMapper.mapFrom(response)),
       catchError((error: any) => {
         throw new Error(error);
       })
@@ -26,7 +33,17 @@ export class HeroesService {
 
   post(data: Heroes): Observable<boolean> {
     const dataModel = HeroesMapper.mapTo(data);
-    return this.httpClient.post(this.apiUrl, dataModel).pipe(
+    return this.http.post(this.apiUrl, dataModel).pipe(
+      map(() => true),
+      catchError((error: any) => {
+        throw new Error(error);
+      })
+    );
+  }
+
+  put(data: Heroes, id: string): Observable<boolean> {
+    const dataModel = HeroesMapper.mapTo(data);
+    return this.http.put(`${this.apiUrl}/${id}`, dataModel).pipe(
       map(() => true),
       catchError((error: any) => {
         throw new Error(error);
@@ -35,7 +52,7 @@ export class HeroesService {
   }
 
   delete(id: string): Observable<boolean> {
-    return this.httpClient.delete(`${this.apiUrl}/${id}`).pipe(
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
       map(() => true),
       catchError((error: any) => {
         throw new Error(error);
