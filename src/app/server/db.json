@@ -1,0 +1,12 @@
+{
+  "Heroes": [
+    {
+      "Id": 1,
+      "Name": "Paco alcacer",
+      "Alias": "Killer",
+      "Description": "The best!",
+      "srcImg": "",
+      "History": ""
+    }
+  ]
+}
