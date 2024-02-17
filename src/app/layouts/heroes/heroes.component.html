@@ -1,21 +1,36 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
-{{userInfo$ | async | json}}
-```
+<div class="flex-1 p-28 flex flex-col gap-4">
+  <div class="flex flex-row justify-start">
+    <button (click)="addNew()" mat-raised-button color="primary">Añadir</button>
+    <div class="m-auto">input</div>
+  </div>
+  <div class="flex flex-row flex-wrap gap-4 justify-start content-start">
+    @for (heroes of allHeroes | async; track heroes.id) {
+      <mat-card appearance="outlined" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ heroes.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ heroes.alias }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+          alt="Photo of a Shiba Inu" />
+        <mat-card-content>
+          <p>
+            {{ heroes.descripcion }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="checkDetail(heroes.id)">
+            Ver más
+          </button>
+          <button mat-button>Editar</button>
+          <button mat-button>Eliminar</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+</div>

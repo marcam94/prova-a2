@@ -7,6 +7,22 @@
       "Description": "The best!",
       "srcImg": "",
       "History": ""
+    },
+    {
+      "Id": 2,
+      "Name": "Manolo",
+      "Alias": "Ecobar",
+      "Description": "siuu!",
+      "srcImg": "",
+      "History": ""
+    },
+    {
+      "Id": 3,
+      "Name": "Pedro",
+      "Alias": "Castolo",
+      "Description": "PES!",
+      "srcImg": "",
+      "History": ""
     }
   ]
 }

@@ -1,5 +1,5 @@
-import {HeroesModel} from "./heroes-model";
-import {Heroes} from "../../../entity/heroes";
+import { HeroesModel } from './heroes-model';
+import { Heroes } from '../../../entity/heroes';
 
 export class HeroesMapper {
   static mapFrom(heroModel: HeroesModel): Heroes {

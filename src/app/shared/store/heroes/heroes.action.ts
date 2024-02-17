@@ -1,4 +1,3 @@
-
 export class GetHeroes {
   static readonly type = '[Heroes] Fetch';
 }
@@ -11,10 +10,14 @@ export class GetHeroes {
 
 export class UpdateHeroes {
   static readonly type = '[Heroes] Update';
-  constructor(public payload: any, public id: number, public i:number) { }
+  constructor(
+    public payload: any,
+    public id: number,
+    public i: number
+  ) {}
 }
 
 export class DeleteHeroes {
   static readonly type = '[Heroes] Delete';
-  constructor(public id: number) { }
+  constructor(public id: number) {}
 }

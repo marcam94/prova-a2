@@ -1,9 +1,9 @@
-import {inject, Injectable} from "@angular/core";
-import { HeroesService } from "../../../core/domain/infrastructure/mocks/heroes/heroes.service";
-import {Action, Selector, State, StateContext} from "@ngxs/store";
-import {Heroes} from "../../../core/domain/entity/heroes";
-import {DeleteHeroes, GetHeroes, UpdateHeroes} from "./heroes.action";
-import {tap} from "rxjs";
+import { inject, Injectable } from '@angular/core';
+import { HeroesService } from '../../../core/domain/infrastructure/mocks/heroes/heroes.service';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Heroes } from '../../../core/domain/entity/heroes';
+import { DeleteHeroes, GetHeroes, UpdateHeroes } from './heroes.action';
+import { tap } from 'rxjs';
 
 export class HeroesStateModel {
   heroes: Heroes[] = [];
@@ -12,33 +12,34 @@ export class HeroesStateModel {
 @State<HeroesStateModel>({
   name: 'heroestate',
   defaults: {
-    heroes: []
-  }
+    heroes: [],
+  },
 })
-
 @Injectable()
 export class HeroesState {
-  private readonly heroesService = inject(HeroesService)
-  constructor() { }
+  private readonly heroesService = inject(HeroesService);
+  constructor() {}
 
   @Selector()
-  static selectStateData(state:HeroesStateModel){
+  static selectStateData(state: HeroesStateModel) {
     return state.heroes;
   }
 
   @Action(GetHeroes)
-  getDataFromState(ctx: StateContext<HeroesStateModel>) {
-    return this.heroesService.getAllHeroes().pipe(tap(returnData => {
-      const state = ctx.getState();
-      console.log(returnData)
-      ctx.setState({
-        ...state,
-        heroes: returnData //here the data coming from the API will get assigned to the users variable inside the appstate
+  getAll(ctx: StateContext<HeroesStateModel>) {
+    return this.heroesService.getAllHeroes().pipe(
+      tap(returnData => {
+        const state = ctx.getState();
+        console.log(returnData);
+        ctx.setState({
+          ...state,
+          heroes: returnData, //here the data coming from the API will get assigned to the users variable inside the appstate
+        });
       })
-    }))
+    );
   }
 
-/*  @Action(AddUsers)
+  /*  @Action(AddUsers)
   addDataToState(ctx: StateContext<UserStateModel>, { payload }: AddUsers) {
     return this._du.addUsers(payload).pipe(tap(returnData => {
       const state=ctx.getState();
@@ -49,9 +50,12 @@ export class HeroesState {
   }*/
 
   @Action(UpdateHeroes)
-  updateDataOfState(ctx: StateContext<HeroesStateModel>, { payload, id, i }: UpdateHeroes) {
+  updateDataOfState(
+    ctx: StateContext<HeroesStateModel>,
+    { payload, id, i }: UpdateHeroes
+  ) {
     //TODO
- /*   return this..updateUser(payload, i).pipe(tap(returnData => {
+    /*   return this..updateUser(payload, i).pipe(tap(returnData => {
       const state=ctx.getState();
 
       const userList = [...state.users];
@@ -65,9 +69,12 @@ export class HeroesState {
   }
 
   @Action(DeleteHeroes)
-  deleteDataFromState(ctx: StateContext<HeroesStateModel>, { id }: DeleteHeroes) {
+  deleteDataFromState(
+    ctx: StateContext<HeroesStateModel>,
+    { id }: DeleteHeroes
+  ) {
     //TODO
-/*    return this._du.deleteUser(id).pipe(tap(returnData => {
+    /*    return this._du.deleteUser(id).pipe(tap(returnData => {
       const state=ctx.getState();
       console.log("The is is",id)
       //Here we will create a new Array called filteredArray which won't contain the given id and set it equal to state.todo

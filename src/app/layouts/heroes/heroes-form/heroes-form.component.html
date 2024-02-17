@@ -1,0 +1,43 @@
+<form [formGroup]="heroesForm">
+  <div class="flex-container flex-center container">
+    <mat-card class="card-style">
+      <div class="title-container">
+        <h1>Heroes Form</h1>
+      </div>
+      <div class="flex-container flex-column card-content">
+        <div class="flex-container row">
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Alias</mat-label>
+            <input matInput formControlName="alias" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Descripcion</mat-label>
+            <input matInput formControlName="descripcion" />
+          </mat-form-field>
+        </div>
+        <div class="flex-container row">
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Imagen URL</mat-label>
+            <input matInput formControlName="image_url" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Historia</mat-label>
+            <input matInput formControlName="historia" />
+          </mat-form-field>
+        </div>
+        <div class="flex-container button-field">
+          <button
+            [disabled]="heroesForm.pristine"
+            mat-raised-button
+            color="primary">
+            Save
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</form>
