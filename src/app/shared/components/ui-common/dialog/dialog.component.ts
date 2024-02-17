@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -10,11 +10,14 @@ import {
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { NgComponentOutlet } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 interface DialogData {
   title: string;
   [key: string]: any;
+  component?: any;
 }
 
 @Component({
@@ -30,6 +33,9 @@ interface DialogData {
     MatButton,
     MatDialogClose,
     MatLabel,
+    NgComponentOutlet,
+    MatIcon,
+    MatIconButton,
   ],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css',
@@ -44,6 +50,6 @@ export class DialogComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.data);
   }
 }

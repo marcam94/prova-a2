@@ -3,21 +3,21 @@ export class GetHeroes {
 }
 
 //TODO
-/*export class AddUsers {
-  static readonly type = '[Users] Add';
-  constructor(public payload: any) { }
-}*/
+export class AddHero {
+  static readonly type = '[Heroes] Add';
+  constructor(public payload: any) {}
+}
 
 export class UpdateHeroes {
   static readonly type = '[Heroes] Update';
   constructor(
     public payload: any,
-    public id: number,
+    public id: string,
     public i: number
   ) {}
 }
 
 export class DeleteHeroes {
   static readonly type = '[Heroes] Delete';
-  constructor(public id: number) {}
+  constructor(public id: string) {}
 }

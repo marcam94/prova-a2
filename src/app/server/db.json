@@ -1,28 +1,31 @@
 {
   "Heroes": [
     {
-      "Id": 1,
+      "Id": "1",
       "Name": "Paco alcacer",
       "Alias": "Killer",
       "Description": "The best!",
       "srcImg": "",
-      "History": ""
+      "History": "",
+      "id": "eb32"
     },
     {
-      "Id": 2,
+      "Id": "2",
       "Name": "Manolo",
       "Alias": "Ecobar",
       "Description": "siuu!",
       "srcImg": "",
-      "History": ""
+      "History": "",
+      "id": "5378"
     },
     {
-      "Id": 3,
+      "Id": "3",
       "Name": "Pedro",
       "Alias": "Castolo",
       "Description": "PES!",
       "srcImg": "",
-      "History": ""
+      "History": "",
+      "id": "a91e"
     }
   ]
 }

@@ -39,14 +39,16 @@ export class HeroesState {
     );
   }
 
-  /*  @Action(AddUsers)
-  addDataToState(ctx: StateContext<UserStateModel>, { payload }: AddUsers) {
-    return this._du.addUsers(payload).pipe(tap(returnData => {
-      const state=ctx.getState();
-      ctx.patchState({
-        users:[...state.users,returnData]
+  /*  @Action(AddHero)
+  addDataToState(ctx: StateContext<HeroesStateModel>, { payload }: AddHero) {
+    return this.heroesService.post(payload).pipe(
+      tap(returnData => {
+        const state = ctx.getState();
+        ctx.patchState({
+          heroes: [...state.heroes, returnData],
+        });
       })
-    }))
+    );
   }*/
 
   @Action(UpdateHeroes)
@@ -73,17 +75,20 @@ export class HeroesState {
     ctx: StateContext<HeroesStateModel>,
     { id }: DeleteHeroes
   ) {
-    //TODO
-    /*    return this._du.deleteUser(id).pipe(tap(returnData => {
-      const state=ctx.getState();
-      console.log("The is is",id)
-      //Here we will create a new Array called filteredArray which won't contain the given id and set it equal to state.todo
-      const filteredArray=state.users.filter(contents=>contents.id!==id);
+    return this.heroesService.delete(id).pipe(
+      tap(res => {
+        if (res) {
+          const state = ctx.getState();
+          const filteredArray = state.heroes.filter(
+            contents => contents.id !== id
+          );
 
-      ctx.setState({
-        ...state,
-        users:filteredArray
+          ctx.setState({
+            ...state,
+            heroes: filteredArray,
+          });
+        }
       })
-    }))*/
+    );
   }
 }

@@ -9,15 +9,20 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
-import { HeroesService } from '../../core/domain/infrastructure/mocks/heroes/heroes.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { HeroesState } from '../../shared/store/heroes/heroes.state';
-import { GetHeroes } from '../../shared/store/heroes/heroes.action';
+import {
+  DeleteHeroes,
+  GetHeroes,
+} from '../../shared/store/heroes/heroes.action';
 import { Heroes } from '../../core/domain/entity/heroes';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../shared/components/ui-common/dialog/dialog.component';
+import { HeroesFormComponent } from './heroes-form/heroes-form.component';
+import {
+  DialogOpt,
+  DialogService,
+} from '../../shared/components/ui-common/dialog/dialog.service';
 
 @Component({
   selector: 'app-heroes',
@@ -39,7 +44,7 @@ import { DialogComponent } from '../../shared/components/ui-common/dialog/dialog
 })
 export class HeroesComponent implements OnInit {
   private readonly store = inject(Store);
-  private readonly dialog = inject(MatDialog);
+  private readonly dialog = inject(DialogService);
   @Select(HeroesState.selectStateData) allHeroes!: Observable<Heroes[]>;
   @Input() heroId!: number;
   title!: string;
@@ -47,7 +52,7 @@ export class HeroesComponent implements OnInit {
     this.store.dispatch(new GetHeroes());
   }
 
-  checkDetail(id: number) {
+  checkDetail(id?: string) {
     this.title = 'Editar heroe';
     //abrir diaologo pasando datos del heroe seleccionado.
     console.log(id);
@@ -55,12 +60,20 @@ export class HeroesComponent implements OnInit {
 
   addNew() {
     this.title = 'Nuevo heroe';
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: { title: this.title },
-      width: '580px',
-      height: '550px',
+    const dialogData: DialogOpt = {
+      component: HeroesFormComponent,
+      title: this.title,
+    };
+    const dialogRef = this.dialog.openDialog(dialogData, {
+      width: '80vh',
+      height: '80vh',
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe(() => console.log('closed'));
+    dialogRef.afterClosed().subscribe(res => console.log('closed', res));
+  }
+
+  deleteHero(id?: string) {
+    if (id) return this.store.dispatch(new DeleteHeroes(id));
+    else throw new Error('No se ha seleccionado un heroe');
   }
 }

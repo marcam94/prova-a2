@@ -23,4 +23,23 @@ export class HeroesService {
       })
     );
   }
+
+  post(data: Heroes): Observable<boolean> {
+    const dataModel = HeroesMapper.mapTo(data);
+    return this.httpClient.post(this.apiUrl, dataModel).pipe(
+      map(() => true),
+      catchError((error: any) => {
+        throw new Error(error);
+      })
+    );
+  }
+
+  delete(id: string): Observable<boolean> {
+    return this.httpClient.delete(`${this.apiUrl}/${id}`).pipe(
+      map(() => true),
+      catchError((error: any) => {
+        throw new Error(error);
+      })
+    );
+  }
 }

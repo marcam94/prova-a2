@@ -28,7 +28,7 @@
             Ver más
           </button>
           <button mat-button>Editar</button>
-          <button mat-button>Eliminar</button>
+          <button (click)="deleteHero(heroes.id)"  mat-button>Eliminar</button>
         </mat-card-actions>
       </mat-card>
     }
