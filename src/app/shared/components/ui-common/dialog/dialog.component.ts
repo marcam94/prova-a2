@@ -42,13 +42,14 @@ import { DialogOpt } from './dialog.service';
 export class DialogComponent implements OnInit {
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true })
   dynamicComponent!: ViewContainerRef;
-
+  disabledClose? :boolean = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogOpt,
     public dialog: MatDialogRef<DialogComponent>
   ) {}
 
   ngOnInit() {
+    this.disabledClose = this.dialog.disableClose
     this.loadComponent();
   }
 
@@ -58,7 +59,7 @@ export class DialogComponent implements OnInit {
       this.data.component
     );
     componentRef.instance.inputData = this.data.inputData;
-    componentRef.instance.outputData.subscribe((res: any) =>
+    componentRef.instance.outputData?.subscribe((res: any) =>
       this.dialog.close(res)
     );
   }

@@ -9,18 +9,18 @@ export const routes: Routes = [
     children: [
       {
         path: 'heroes',
-        pathMatch: 'full',
         loadComponent: () =>
           import('./layouts/heroes/heroes.component').then(
             m => m.HeroesComponent
           ),
-      },
-      {
-        path: 'heroes/:heroId',
-        loadComponent: () =>
-          import('./layouts/heroes/heroes.component').then(
-            m => m.HeroesComponent
-          ),
+        children: [
+          {
+            path: 'detail/:heroId',
+            loadComponent: () =>
+              import('./layouts/heroes/heroes-detail/heroes-detail.component').then(
+                m => m.HeroesDetailComponent
+              ),          }
+        ]
       },
     ],
   },

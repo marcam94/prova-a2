@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { HeroesService } from '../../../core/domain/infrastructure/mocks/heroes/heroes.service';
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
 import { Heroes } from '../../../core/domain/entity/heroes';
 import {
   AddHero,
-  DeleteHeroes,
+  DeleteHeroes, GetHeroById,
   GetHeroes,
   UpdateHeroes,
 } from './heroes.action';
@@ -21,14 +21,25 @@ export class HeroesStateModel {
   },
 })
 @Injectable()
-export class HeroesState {
+export class HeroesState implements NgxsOnInit{
   private readonly heroesService = inject(HeroesService);
 
   constructor() {}
 
+  ngxsOnInit(ctx: StateContext<any>): void {
+    ctx.dispatch(new GetHeroes());
+    }
+
   @Selector()
   static selectStateData(state: HeroesStateModel) {
     return state.heroes;
+  }
+
+  @Selector()
+  static selectHeroById(state: HeroesStateModel) {
+    return (id: string) => {
+      return state.heroes.find(hero => hero.id === id);
+    };
   }
 
   @Action(GetHeroes)
@@ -36,13 +47,17 @@ export class HeroesState {
     return this.heroesService.getAllHeroes().pipe(
       tap(data => {
         const state = ctx.getState();
-        console.log(data);
         ctx.setState({
           ...state,
           heroes: data,
         });
       })
     );
+  }
+
+  @Action(GetHeroById)
+  getHeroById(ctx: StateContext<HeroesStateModel>, { id }: GetHeroById) {
+    return this.heroesService.getById(id);
   }
 
   @Action(AddHero)

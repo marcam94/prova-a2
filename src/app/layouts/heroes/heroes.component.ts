@@ -5,8 +5,8 @@ import {
   MatCardContent,
   MatCardHeader,
   MatCardImage,
-  MatCardSubtitle,
   MatCardTitle,
+  MatCardSubtitle,
 } from '@angular/material/card';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { AsyncPipe, JsonPipe } from '@angular/common';
@@ -15,7 +15,7 @@ import { Select, Store } from '@ngxs/store';
 import { HeroesState } from '../../shared/store/heroes/heroes.state';
 import {
   AddHero,
-  DeleteHeroes,
+  DeleteHeroes, GetHeroById,
   GetHeroes,
   UpdateHeroes,
 } from '../../shared/store/heroes/heroes.action';
@@ -31,6 +31,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { DialogComponent } from '../../shared/components/ui-common/dialog/dialog.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-heroes',
@@ -52,6 +53,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     MatLabel,
     MatIcon,
     MatInput,
+    RouterOutlet,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
@@ -59,18 +61,37 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class HeroesComponent implements OnInit {
   private readonly store = inject(Store);
   private readonly dialog = inject(DialogService);
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
   @Select(HeroesState.selectStateData) allHeroes!: Observable<Heroes[]>;
-  @Input() heroId!: number;
   title!: string;
   value!: string;
 
   ngOnInit(): void {
-    this.store.dispatch(new GetHeroes());
   }
 
-  checkDetail(id?: string) {
-    this.title = 'Editar nuevo heroe';
-  }
+  openDetail(heroId: string) {
+    this.router.navigate(['detail', heroId], { relativeTo: this.activatedRoute  });
+    /*const currentHero = this.store.selectSnapshot(HeroesState.selectHeroById)(id)
+    if (!currentHero) {
+      alert('No se ha encontrado el heroe')
+      return
+    }
+    this.title = 'Detalle de heroe';
+    const dialogData: DialogOpt = {
+      component: HeroesDetailComponent,
+      title: this.title,
+      inputData: { name: 'heroe', value: currentHero },
+
+    };
+    const dialogRef = this.dialog.openDialog(dialogData, {
+      width: '80vh',
+      height: '80vh',
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe();*/
+    }
+
 
   addNewHero() {
     this.title = 'Añadir nuevo heroe';
@@ -81,7 +102,7 @@ export class HeroesComponent implements OnInit {
     const dialogRef = this.dialog.openDialog(dialogData, {
       width: '80vh',
       height: '80vh',
-      disableClose: true,
+      disableClose: false,
     });
     this.updateStateHeroesAfterDialogClose(null, dialogRef);
   }
@@ -119,7 +140,7 @@ export class HeroesComponent implements OnInit {
       const dialogRef = this.dialog.openDialog(dialogData, {
         width: '80vh',
         height: '80vh',
-        disableClose: true,
+        disableClose: false,
       });
       this.updateStateHeroesAfterDialogClose(hero.id, dialogRef);
     }
