@@ -3,6 +3,7 @@
 </div>
 <mat-dialog-content class="h-100">
   <ng-container #dynamicComponent></ng-container>
+  <ng-content select="[detail]"></ng-content>
 </mat-dialog-content>
 @if (disabledClose){
   <mat-dialog-actions>

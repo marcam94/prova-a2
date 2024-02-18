@@ -1,0 +1,7 @@
+.mat-card-content-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 0 10px;
+  gap: 10px;
+}

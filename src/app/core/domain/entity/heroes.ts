@@ -5,4 +5,5 @@ export interface Heroes {
   descripcion: string;
   imagen_url: string;
   historia?: string;
+  tags: string;
 }

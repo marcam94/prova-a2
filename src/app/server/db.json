@@ -1,20 +1,13 @@
 {
   "Heroes": [
     {
-      "id": "b8cb",
-      "Name": "asd",
-      "Alias": "asd",
-      "Description": "asd",
-      "srcImg": "asd",
-      "history": "sad"
-    },
-    {
-      "id": "c8e8",
       "Name": "manolo",
       "Alias": "escobar",
-      "Description": "asdad",
-      "srcImg": "asdsad",
-      "history": "asdasd"
+      "Description": "asdasdasd",
+      "SrcImg": "asdsad",
+      "History": "asdasd",
+      "id": "c8e8",
+      "Tags": "Marvel"
     }
   ]
 }

@@ -8,8 +8,9 @@ export class HeroesMapper {
       nombre: heroModel.Name,
       alias: heroModel.Alias,
       descripcion: heroModel.Description,
-      imagen_url: heroModel.srcImg,
-      historia: heroModel.history,
+      imagen_url: heroModel.SrcImg,
+      historia: heroModel.History,
+      tags: heroModel.Tags,
     };
   }
   static mapTo(hero: Heroes): HeroesModel {
@@ -18,8 +19,9 @@ export class HeroesMapper {
       Name: hero.nombre,
       Alias: hero.alias,
       Description: hero.descripcion,
-      srcImg: hero.imagen_url,
-      history: hero.historia,
+      SrcImg: hero.imagen_url,
+      History: hero.historia,
+      Tags: hero.tags,
     };
   }
 }

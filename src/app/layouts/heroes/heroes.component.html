@@ -32,7 +32,7 @@
           <button
             mat-raised-button
             color="primary"
-            (click)="openDetail(heroes.id)">
+            [routerLink]="['/heroes', heroes.id]">
             Ver más
           </button>
           <button (click)="editHero(heroes)" mat-button>Editar</button>
@@ -42,4 +42,3 @@
     }
   </div>
 </div>
-<router-outlet></router-outlet>
