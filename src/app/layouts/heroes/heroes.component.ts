@@ -24,6 +24,7 @@ import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesService } from './heroes.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { NavbarComponent } from '../../shared/components';
 
 @Component({
   selector: 'app-heroes',
@@ -48,6 +49,7 @@ import { MatPaginator } from '@angular/material/paginator';
     RouterOutlet,
     RouterLink,
     MatPaginator,
+    NavbarComponent,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',

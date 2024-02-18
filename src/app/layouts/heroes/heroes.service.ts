@@ -15,7 +15,7 @@ import {
   DialogService,
 } from '../../shared/components/ui-common/dialog/dialog.service';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
-import { DialogComponent } from '../../shared/components/ui-common/dialog/dialog.component';
+import { DialogComponent } from '../../shared/components';
 import { HeroesState } from '../../shared/store/heroes/heroes.state';
 
 @Injectable({
