@@ -1,14 +1,25 @@
 <div class="flex-1 p-44 flex flex-col gap-4">
   <mat-card appearance="outlined" class="w-3/6 m-auto">
     <mat-card-header class="mb-5 flex flex-row justify-between">
-        <mat-card-title>{{ hero?.nombre | titlecase }} más conocido como {{ hero?.alias | titlecase }} </mat-card-title>
-        <div>
-          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="goBack()"  ><mat-icon>arrow_back</mat-icon> Volver</button>
-            <button mat-menu-item (click)="editHero()" ><mat-icon>edit</mat-icon>Editar</button>
-            <button mat-menu-item (click)="deleteHero(hero?.id)" ><mat-icon>delete</mat-icon>Eliminar</button>
-          </mat-menu>
+      <mat-card-title
+        >{{ hero?.nombre | titlecase }} más conocido como
+        {{ hero?.alias | titlecase }}
+      </mat-card-title>
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon> Volver
+          </button>
+          <button mat-menu-item (click)="editHero()">
+            <mat-icon>edit</mat-icon>Editar
+          </button>
+          <button mat-menu-item (click)="deleteHero(hero?.id)">
+            <mat-icon>delete</mat-icon>Eliminar
+          </button>
+        </mat-menu>
       </div>
     </mat-card-header>
     <mat-card-content class="mat-card-content-flex">
@@ -26,17 +37,18 @@
       </div>
     </mat-card-content>
     <mat-accordion class="mt-5">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            Ver más
-          </mat-panel-title>
+          <mat-panel-title> Ver más </mat-panel-title>
           <mat-panel-description>
-           Saber la historia de {{ hero?.nombre }}
+            Saber la historia de {{ hero?.nombre }}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <p class="overflow-auto" style="max-height: 400px!important;">{{hero?.historia}}</p>
+        <p class="overflow-auto" style="max-height: 400px !important">
+          {{ hero?.historia }}
+        </p>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card>

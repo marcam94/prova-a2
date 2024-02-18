@@ -5,9 +5,8 @@
   <ng-container #dynamicComponent></ng-container>
   <ng-content select="[detail]"></ng-content>
 </mat-dialog-content>
-@if (disabledClose){
+@if (disabledClose) {
   <mat-dialog-actions>
     <button mat-button (click)="dialog.close()">Cerrar</button>
   </mat-dialog-actions>
 }
-

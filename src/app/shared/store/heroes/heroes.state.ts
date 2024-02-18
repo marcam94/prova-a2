@@ -4,7 +4,8 @@ import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
 import { Heroes } from '../../../core/domain/entity/heroes';
 import {
   AddHero,
-  DeleteHeroes, GetHeroById,
+  DeleteHeroes,
+  GetHeroById,
   GetHeroes,
   UpdateHeroes,
 } from './heroes.action';
@@ -21,14 +22,14 @@ export class HeroesStateModel {
   },
 })
 @Injectable()
-export class HeroesState implements NgxsOnInit{
+export class HeroesState implements NgxsOnInit {
   private readonly heroesService = inject(HeroesService);
 
   constructor() {}
 
   ngxsOnInit(ctx: StateContext<any>): void {
     ctx.dispatch(new GetHeroes());
-    }
+  }
 
   @Selector()
   static selectStateData(state: HeroesStateModel) {
@@ -39,6 +40,15 @@ export class HeroesState implements NgxsOnInit{
   static selectHeroById(state: HeroesStateModel) {
     return (id: string) => {
       return state.heroes.find(hero => hero.id === id);
+    };
+  }
+
+  @Selector()
+  static selectHeroesByName(state: HeroesStateModel) {
+    return (substring: string) => {
+      return state.heroes.filter(hero =>
+        hero.nombre.toLowerCase().includes(substring.toLowerCase())
+      );
     };
   }
 

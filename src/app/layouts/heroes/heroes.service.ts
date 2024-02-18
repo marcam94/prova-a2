@@ -16,6 +16,7 @@ import {
 } from '../../shared/components/ui-common/dialog/dialog.service';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import { DialogComponent } from '../../shared/components/ui-common/dialog/dialog.component';
+import { HeroesState } from '../../shared/store/heroes/heroes.state';
 
 @Injectable({
   providedIn: 'root',
@@ -40,8 +41,14 @@ export class HeroesService {
     }
   }
 
-  getHeroes(): Observable<any> {
-    return this.store.dispatch(new GetHeroes()).pipe(take(1));
+  public getHeroesByFilter(filter: string): Heroes[] {
+    return this.store.selectSnapshot(HeroesState.selectHeroesByName)(
+      String(filter)
+    );
+  }
+
+  public getAll(): Observable<Heroes[]> {
+    return this.store.select(HeroesState.selectStateData);
   }
 
   public editHero(hero: Heroes): Observable<any> {

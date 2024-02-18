@@ -21,7 +21,7 @@ import { MatIcon } from '@angular/material/icon';
 import { DialogOpt } from './dialog.service';
 
 @Component({
-  selector: 'app-dialog',
+  selector: 'ui-common-dialog',
   standalone: true,
   imports: [
     MatDialogTitle,

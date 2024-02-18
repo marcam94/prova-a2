@@ -1,7 +1,7 @@
 export class GetHeroes {
   static readonly type = '[Heroes] Fetch';
 }
-export class GetHeroById{
+export class GetHeroById {
   static readonly type = '[Heroes] FetchById';
   constructor(public id: string) {}
 }

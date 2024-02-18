@@ -9,7 +9,7 @@ import { DialogComponent } from './dialog.component';
 export interface DialogOpt {
   title: string;
   component: Type<any>;
-  inputData?: [{ name: string; value: any }] | {name: string; value: any}
+  inputData?: [{ name: string; value: any }] | { name: string; value: any };
 }
 
 @Injectable({

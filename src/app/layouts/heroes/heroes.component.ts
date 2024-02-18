@@ -10,9 +10,7 @@ import {
 } from '@angular/material/card';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import { Observable } from 'rxjs';
-import { Select } from '@ngxs/store';
-import { HeroesState } from '../../shared/store/heroes/heroes.state';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import {
@@ -25,6 +23,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesService } from './heroes.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-heroes',
@@ -48,6 +47,7 @@ import { HeroesService } from './heroes.service';
     MatInput,
     RouterOutlet,
     RouterLink,
+    MatPaginator,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
@@ -55,11 +55,15 @@ import { HeroesService } from './heroes.service';
 export class HeroesComponent implements OnInit {
   private readonly heroesService = inject(HeroesService);
   private readonly dialog = inject(DialogService);
-  @Select(HeroesState.selectStateData) allHeroes!: Observable<Heroes[]>;
+  allHeroes: Subject<Heroes[]> = new BehaviorSubject<Heroes[]>([]);
   title!: string;
   value!: string;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.heroesService.getAll().subscribe(data => {
+      this.allHeroes.next(data);
+    });
+  }
 
   addNewHero() {
     this.title = 'Añadir nuevo heroe';
@@ -79,6 +83,10 @@ export class HeroesComponent implements OnInit {
           .subscribe(() => alert('Heroe añadido'));
       }
     });
+  }
+
+  findByName() {
+    this.allHeroes.next(this.heroesService.getHeroesByFilter(this.value));
   }
 
   deleteHero(id?: string) {
