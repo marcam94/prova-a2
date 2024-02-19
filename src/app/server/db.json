@@ -9,22 +9,28 @@
       "id": "marvel001"
     },
     {
-      "Name": "Dark Arrow",
-      "Alias": "Oliver Queen",
-      "Description": "Arquero experto y justiciero que lucha contra el crimen como Dark Arrow.",
-      "SrcImg": "ruta/imagen_dark_arrow.jpg",
-      "History": "Después de sobrevivir en una isla desierta, Oliver Queen regresa a la civilización para luchar contra la corrupción y el crimen.",
-      "id": "dc001",
-      "Tags": "DC"
+      "id": "b7a6",
+      "Name": "asdads",
+      "Alias": "dasdas",
+      "Description": "dasdsa",
+      "SrcImg": "dasd",
+      "History": "dsad"
     },
     {
-      "Name": "Spider Serpent",
-      "Alias": "Peter Parker",
-      "Description": "Estudiante de secundaria con habilidades arácnidas que se convierte en el sorprendente Spider Serpent.",
-      "SrcImg": "ruta/imagen_spider_serpent.jpg",
-      "History": "Tras ser mordido por una araña radiactiva, Peter Parker desarrolla habilidades sobrehumanas y decide usarlas para proteger la ciudad.",
-      "id": "marvel002",
-      "Tags": "Marvel"
+      "id": "63a8",
+      "Name": "dasd",
+      "Alias": "dsadas",
+      "Description": "dsdsa",
+      "SrcImg": "dd",
+      "History": "d"
+    },
+    {
+      "id": "3f4f",
+      "Name": "asds",
+      "Alias": "ds",
+      "Description": "d",
+      "SrcImg": "d",
+      "History": "d"
     }
   ]
 }

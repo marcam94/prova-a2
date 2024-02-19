@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { AuthService } from '../../services/auth.service';
 import { take } from 'rxjs';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ import { take } from 'rxjs';
     MatButtonModule,
     MatFormFieldModule,
     MatCheckbox,
+    NgClass,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
