@@ -28,7 +28,7 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'heroe/detalle/:heroId',
+        path: 'detalle/:heroId',
         canActivate: [AuthGuard],
         loadComponent: () =>
           import('./layouts/heroes/heroes-detail/heroes-detail.component').then(

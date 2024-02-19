@@ -31,13 +31,15 @@ import { take } from 'rxjs';
     MatCheckbox,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  readonly router = inject(Router);
-  readonly authService = inject(AuthService);
-  hide = true;
-  loginForm = new FormGroup({
+
+
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
+  public hide = true;
+  public loginForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
@@ -46,14 +48,17 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    sessionStorage.clear();
+  }
 
-  login() {
+  public login() {
     if (this.loginForm.valid) {
       const name = this.loginForm.get('name')?.value;
       if (name) sessionStorage.setItem('username', name);
+      this.authService._isLoggedIn.next(true)
       this.authService
-        .isLogged()
+        .isLogged
         .pipe(take(1))
         .subscribe(res => {
           if (res) this.router.navigate(['/home/heroes']);

@@ -9,7 +9,8 @@ import {
   GetHeroes,
   UpdateHeroes,
 } from './heroes.action';
-import { tap } from 'rxjs';
+import { filter, first, take, tap } from 'rxjs';
+import { AuthService } from '../../../core/auth/services/auth.service';
 
 export class HeroesStateModel {
   heroes: Heroes[] = [];
@@ -23,12 +24,18 @@ export class HeroesStateModel {
 })
 @Injectable()
 export class HeroesState implements NgxsOnInit {
+  private readonly authService = inject(AuthService)
   private readonly heroesService = inject(HeroesService);
 
   constructor() {}
 
   ngxsOnInit(ctx: StateContext<any>): void {
-    ctx.dispatch(new GetHeroes());
+    this.authService.isLogged.pipe(
+      tap(res => console.log(res)),
+      filter(res => res),
+    ).subscribe(() => {
+      ctx.dispatch(new GetHeroes());
+    });
   }
 
   @Selector()

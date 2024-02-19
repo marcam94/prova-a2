@@ -21,7 +21,7 @@ import { HeroesState } from '../../shared/store/heroes/heroes.state';
 @Injectable({
   providedIn: 'root',
 })
-export class HeroesService {
+export class HeroesLogicService {
   constructor(
     private store: Store,
     private dialog: DialogService

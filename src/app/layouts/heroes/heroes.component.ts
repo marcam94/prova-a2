@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HeroesService } from './heroes.service';
+import { HeroesLogicService } from './heroes-logic.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { NavbarComponent } from '../../shared/components';
 
@@ -55,7 +55,7 @@ import { NavbarComponent } from '../../shared/components';
   styleUrl: './heroes.component.css',
 })
 export class HeroesComponent implements OnInit {
-  private readonly heroesService = inject(HeroesService);
+  private readonly heroesService = inject(HeroesLogicService);
   private readonly dialog = inject(DialogService);
   allHeroes: Subject<Heroes[]> = new BehaviorSubject<Heroes[]>([]);
   title!: string;

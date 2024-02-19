@@ -21,7 +21,7 @@ import {
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { HeroesService } from '../heroes.service';
+import { HeroesLogicService } from '../heroes-logic.service';
 
 @Component({
   selector: 'app-heroes-detail',
@@ -51,7 +51,7 @@ import { HeroesService } from '../heroes.service';
   ],
 })
 export class HeroesDetailComponent implements OnInit {
-  private readonly heroesService = inject(HeroesService);
+  private readonly heroesService = inject(HeroesLogicService);
   private readonly store = inject(Store);
   private readonly location = inject(Location);
   @Input() heroId!: number | string;
