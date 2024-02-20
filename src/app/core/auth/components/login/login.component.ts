@@ -14,11 +14,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { AuthService } from '../../services/auth.service';
-import { concatMap, take } from 'rxjs';
+import { take } from 'rxjs';
 import { NgClass } from '@angular/common';
 import { ErrorsFormComponent } from '../../../../shared/components';
-import { Store } from '@ngxs/store';
-import { GetHeroes } from '../../../../shared/store/heroes/heroes.action';
 
 @Component({
   selector: 'app-login',
@@ -40,8 +38,6 @@ import { GetHeroes } from '../../../../shared/store/heroes/heroes.action';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-
-  private readonly store = inject(Store)
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
   public hide = true;
@@ -62,12 +58,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const name = this.loginForm.get('name')?.value;
       if (name) sessionStorage.setItem('username', name);
-      this.authService._isLoggedIn.next(true)
-      this.authService
-        .isLogged
-        .pipe(take(1),
+      this.authService._isLoggedIn.next(true);
+      this.authService.isLogged
+        .pipe(
+          take(1)
           // concatMap(() => this.store.dispatch(new GetHeroes()))
-          )
+        )
         .subscribe(res => {
           if (res) this.router.navigate(['/home/heroes']);
           else alert('Something went wrong, try again');

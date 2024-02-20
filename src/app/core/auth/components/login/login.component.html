@@ -1,33 +1,35 @@
-<div class="bg-gray-100 flex justify-center items-center h-screen">
-<div class="w-1/2 h-screen hidden lg:block">
-<img src="https://wallpapers.com/images/hd/1366-x-768-marvel-vs-dc-vk10rl9i62v86vpv.jpg" alt="Placeholder Image" class="object-cover w-full h-full">
-</div>
-<div class="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
-<h1 class="text-2xl font-semibold mb-4">Iniciar sesión</h1>
-<form [formGroup]="loginForm">
-
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Usuario</mat-label>
-    <input matInput [formControlName]="'name'">
-    <mat-error>
-      <app-errors-form-wrapper [errors]="loginForm.get('name')?.errors"></app-errors-form-wrapper>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Introduce tu contraseña</mat-label>
-    <input matInput [formControlName]="'password'" [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-    <mat-error>
-      <app-errors-form-wrapper [errors]="loginForm.get('password')?.errors"></app-errors-form-wrapper>
-    </mat-error>
-  </mat-form-field>
-  <div class="mb-4 mt-5 flex items-center">
-    <input type="checkbox" id="remember" name="remember" class="text-blue-500">
-    <label for="remember" class="text-gray-600 ml-2">Recuérdame</label>
+<div class="bg-gray-100 flex justify-center items-center h-screen" style="background-color: #eff0f3 !important;">
+  <div class="w-1/2 h-screen hidden lg:block">
+    <img src="https://wallpapers.com/images/hd/1366-x-768-marvel-vs-dc-vk10rl9i62v86vpv.jpg" alt="Placeholder Image"
+         class="object-cover w-full h-full">
   </div>
-  <button [disabled]="loginForm.invalid" (click)="login()" type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full disabled:opacity-25">Login</button>
-</form>
-</div>
+  <div class="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
+    <h1 class="text-2xl font-semibold mb-4 ''">Iniciar sesión</h1>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Usuario</mat-label>
+        <input matInput [formControlName]="'name'">
+        <mat-error>
+          <app-errors-form-wrapper [errors]="loginForm.get('name')?.errors"></app-errors-form-wrapper>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label >Introduce tu contraseña</mat-label>
+        <input matInput [formControlName]="'password'" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error>
+          <app-errors-form-wrapper [errors]="loginForm.get('password')?.errors"></app-errors-form-wrapper>
+        </mat-error>
+      </mat-form-field>
+      <div class="mb-4 mt-5 flex items-center">
+        <mat-checkbox>Recuerdame</mat-checkbox>
+      </div>
+      <button [disabled]="loginForm.invalid" (click)="login()"  color="primary" type="submit" mat-flat-button class="w-full">
+        Login
+      </button>
+    </form>
+  </div>
 </div>

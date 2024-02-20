@@ -26,7 +26,8 @@ export class HeroesLogicService {
     private store: Store,
     private dialog: DialogService
   ) {}
-  @Select(HeroesState.allHeroes) allHeroes$!: Observable<Heroes[]>
+  @Select(HeroesState.allHeroes) allHeroes$!: Observable<Heroes[]>;
+
   public deleteHero(id?: string): Observable<any> {
     if (!id) {
       throw new Error('No se ha seleccionado un heroe');
@@ -46,14 +47,13 @@ export class HeroesLogicService {
   }
 
   public getHeroById(id: string): Observable<Heroes | undefined> {
-    return this.store.select(HeroesState.selectHeroById)
-      .pipe(
-        switchMap(selectHeroById => of(selectHeroById(id)))
-      )
+    return this.store
+      .select(HeroesState.selectHeroById)
+      .pipe(switchMap(selectHeroById => of(selectHeroById(id))));
   }
 
   public getAll(): Observable<Heroes[]> {
-    return this.allHeroes$
+    return this.allHeroes$;
   }
 
   public editHero(hero: Heroes): Observable<any> {

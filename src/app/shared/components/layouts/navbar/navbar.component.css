@@ -5,4 +5,5 @@
 .navbar-bg {
   padding: 0 75px !important;
   background-color: #14213D !important;
+  max-height: 64px !important;
 }

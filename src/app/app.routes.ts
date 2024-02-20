@@ -13,16 +13,21 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'home',
+    redirectTo: 'home/heroes',
+    pathMatch: 'full',
+  },
+  {
     path: 'home/heroes',
     canActivate: [AuthGuard],
     loadComponent: () =>
-      import('./layouts/home/home.component').then(m => m.HomeComponent),
+      import('./pages/home/home.component').then(m => m.HomeComponent),
     children: [
       {
         path: '',
         canActivate: [AuthGuard],
         loadComponent: () =>
-          import('./layouts/heroes/heroes.component').then(
+          import('./pages/heroes/heroes.component').then(
             m => m.HeroesComponent
           ),
         pathMatch: 'full',
@@ -31,7 +36,7 @@ export const routes: Routes = [
         path: 'detalle/:heroId',
         canActivate: [AuthGuard],
         loadComponent: () =>
-          import('./layouts/heroes/heroes-detail/heroes-detail.component').then(
+          import('./pages/heroes/heroes-detail/heroes-detail.component').then(
             m => m.HeroesDetailComponent
           ),
       },

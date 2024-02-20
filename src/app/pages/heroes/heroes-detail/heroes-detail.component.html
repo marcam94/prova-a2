@@ -1,0 +1,61 @@
+<ng-container *ngIf="hero | async as heroe">
+  <div class="flex-1 p-44 flex flex-col gap-4">
+    <mat-card appearance="outlined" class="w-3/6 m-auto">
+      <mat-card-header class="flex flex-row justify-between">
+        <mat-card-title
+        >{{ heroe?.nombre | titlecase }} más conocido como
+          {{ heroe?.alias | titlecase }}
+        </mat-card-title>
+        <div class="flex flex-row">
+          <!--        <button (click)="goBack()" mat-menu-item>-->
+          <!--          <mat-icon>arrow_back</mat-icon>-->
+          <!--        </button>-->
+          <button (click)="editHero(heroe)" mat-menu-item>
+            <mat-icon class="size-0.5" >edit</mat-icon>
+          </button>
+          <button (click)="deleteHero(heroe?.id)" mat-menu-item>
+            <mat-icon class="size-0.5">delete</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+      <div class="mat-card-tags mb-5">
+        @if(heroe?.tags === 'marvel'){
+          <img ngSrc="assets/imgs/logos/marvellog_48x48.webp" alt="logo" height="48"
+               width="48">
+        } @else {
+          <img ngSrc="assets/imgs/logos/dc.png" alt="logo" height="36"
+               width="36">
+        }
+      </div>
+      <mat-card-content class="mat-card-content-flex">
+        <div class="rounded-md basis-1/2">
+          <img
+            alt="hero image"
+            mat-card-image
+            src="{{ heroe?.imagen_url }}"
+            style="height: 100%; width: 100%" />
+        </div>
+        <div class="basis-1/2 overflow-auto px-6" style="max-height: 300px">
+        <span>
+          {{ heroe?.descripcion }}
+        </span>
+        </div>
+      </mat-card-content>
+      <mat-accordion class="mt-5">
+        <mat-expansion-panel
+          (closed)="panelOpenState = false"
+          (opened)="panelOpenState = true">
+          <mat-expansion-panel-header>
+            <mat-panel-title> Ver más</mat-panel-title>
+            <mat-panel-description>
+              Saber la historia de {{ heroe?.nombre }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p class="overflow-auto" style="max-height: 400px !important">
+            {{ heroe?.historia }}
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card>
+  </div>
+</ng-container>

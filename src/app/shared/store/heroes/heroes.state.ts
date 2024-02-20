@@ -31,17 +31,18 @@ export class HeroesState implements NgxsOnInit {
   constructor() {}
 
   ngxsOnInit(ctx: StateContext<any>): void {
-    this.authService.isLogged.pipe(
-      filter(isLogged => isLogged),
-      switchMap(() => ctx.dispatch(new GetHeroes()))
-    ).subscribe()
+    this.authService.isLogged
+      .pipe(
+        filter(isLogged => isLogged),
+        switchMap(() => ctx.dispatch(new GetHeroes()))
+      )
+      .subscribe();
   }
 
   @Selector()
   static allHeroes(state: HeroesStateModel) {
     return state.heroes;
   }
-
 
   @Selector()
   static selectHeroById(state: HeroesStateModel) {
@@ -52,11 +53,13 @@ export class HeroesState implements NgxsOnInit {
 
   @Selector()
   static selectHeroesByName(state: HeroesStateModel) {
-    return (substring: string) => {
-      return state.heroes.filter(hero => hero.nombre.includes(substring));
+    return (nameToFind: string) => {
+      const toLowerCase = nameToFind.toLowerCase();
+      return state.heroes.filter(hero =>
+        hero.nombre.toLowerCase().includes(toLowerCase)
+      );
     };
   }
-
   @Action(GetHeroes)
   getAll(ctx: StateContext<HeroesStateModel>) {
     return this.heroesService.getAllHeroes().pipe(

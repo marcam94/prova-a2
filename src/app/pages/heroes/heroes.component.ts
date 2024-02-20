@@ -8,15 +8,30 @@ import {
   MatCardSubtitle,
   MatCardTitle,
 } from '@angular/material/card';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { AsyncPipe, JsonPipe, NgIf, NgOptimizedImage, TitleCasePipe } from '@angular/common';
+import {
+  MatButton,
+  MatFabButton,
+  MatIconButton,
+} from '@angular/material/button';
+import {
+  AsyncPipe,
+  JsonPipe,
+  NgIf,
+  NgOptimizedImage,
+  TitleCasePipe,
+} from '@angular/common';
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import {
   DialogOpt,
   DialogService,
 } from '../../shared/components/ui-common/dialog/dialog.service';
-import { MatFormField, MatLabel, MatPrefix, MatSuffix } from '@angular/material/form-field';
+import {
+  MatFormField,
+  MatLabel,
+  MatPrefix,
+  MatSuffix,
+} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
@@ -24,6 +39,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesLogicService } from './heroes-logic.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { NavbarComponent } from '../../shared/components';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-heroes',
@@ -54,6 +70,10 @@ import { NavbarComponent } from '../../shared/components';
     NgOptimizedImage,
     NgIf,
     MatPrefix,
+    MatFabButton,
+    MatMenuTrigger,
+    MatMenu,
+    MatMenuItem,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
@@ -63,7 +83,7 @@ export class HeroesComponent implements OnInit {
   private readonly dialog = inject(DialogService);
   heroes = signal<Heroes[]>([]);
   length = 0;
-  pageSize = 5;
+  pageSize = 6;
   pageIndex = 0;
   title!: string;
   value!: string;
@@ -90,6 +110,14 @@ export class HeroesComponent implements OnInit {
     this.loadHeroes();
   }
 
+  editHero(hero: Heroes) {
+    this.heroesService.editHero(hero).subscribe();
+  }
+
+  deleteHero(id: string) {
+    this.heroesService.deleteHero(id).subscribe();
+  }
+
   addNewHero() {
     this.title = 'Añadir nuevo heroe';
     const dialogData: DialogOpt = {
@@ -113,11 +141,12 @@ export class HeroesComponent implements OnInit {
   findByName() {
     if (this.value && this.value.trim() !== '') {
       const data = this.heroesService.getHeroesByFilter(this.value);
-      console.log(data);
       this.heroes.set(data);
       this.length = data.length;
     } else {
       this.loadHeroes();
     }
   }
+
+  goBack() {}
 }
