@@ -11,11 +11,12 @@ import {
 } from './heroes.action';
 import { filter, tap } from 'rxjs';
 import { AuthService } from '../../../core/auth/services/auth.service';
+import { switchMap } from 'rxjs/operators';
 
 export class HeroesStateModel {
   heroes: Heroes[] = [];
 }
-
+const SESSION_KEY = 'username';
 @State<HeroesStateModel>({
   name: 'heroestate',
   defaults: {
@@ -30,15 +31,17 @@ export class HeroesState implements NgxsOnInit {
   constructor() {}
 
   ngxsOnInit(ctx: StateContext<any>): void {
-    this.authService.isLogged.pipe(filter(res => res)).subscribe(() => {
-      ctx.dispatch(new GetHeroes());
-    });
+    this.authService.isLogged.pipe(
+      filter(isLogged => isLogged),
+      switchMap(() => ctx.dispatch(new GetHeroes()))
+    ).subscribe()
   }
 
   @Selector()
-  static selectStateData(state: HeroesStateModel) {
+  static allHeroes(state: HeroesStateModel) {
     return state.heroes;
   }
+
 
   @Selector()
   static selectHeroById(state: HeroesStateModel) {

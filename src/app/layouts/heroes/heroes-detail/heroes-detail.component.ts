@@ -1,7 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { HeroesState } from '../../../shared/store/heroes/heroes.state';
-import { AsyncPipe, JsonPipe, Location, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, JsonPipe, Location, NgIf, NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import {
   MatCard,
   MatCardContent,
@@ -22,66 +21,39 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { HeroesLogicService } from '../heroes-logic.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-heroes-detail',
   standalone: true,
   templateUrl: './heroes-detail.component.html',
   styleUrl: './heroes-detail.component.css',
-  imports: [
-    MatCard,
-    MatCardHeader,
-    MatCardContent,
-    AsyncPipe,
-    JsonPipe,
-    MatCardImage,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatAccordion,
-    MatExpansionPanel,
-    MatExpansionPanelTitle,
-    MatExpansionPanelDescription,
-    MatExpansionPanelHeader,
-    TitleCasePipe,
-    MatMenuTrigger,
-    MatMenu,
-    MatMenuItem,
-    MatButton,
-    MatIcon,
-  ],
+  imports: [MatCard, MatCardHeader, MatCardContent, AsyncPipe, JsonPipe, MatCardImage, MatCardTitle, MatCardSubtitle, MatAccordion, MatExpansionPanel, MatExpansionPanelTitle, MatExpansionPanelDescription, MatExpansionPanelHeader, TitleCasePipe, MatMenuTrigger, MatMenu, MatMenuItem, MatButton, MatIcon, NgOptimizedImage, NgIf],
 })
 export class HeroesDetailComponent implements OnInit {
+  @Input() heroId!: number | string;
+  public hero?: Observable<Heroes | undefined>;
+  public panelOpenState = false;
   private readonly heroesService = inject(HeroesLogicService);
   private readonly store = inject(Store);
   private readonly location = inject(Location);
-  @Input() heroId!: number | string;
-  public hero?: Heroes;
-  public panelOpenState = false;
 
   ngOnInit(): void {
-    this.hero = this.store.selectSnapshot(HeroesState.selectHeroById)(
-      String(this.heroId)
-    );
-    if (!this.hero) {
-      alert('Hero not found');
-      this.goBack();
-    }
+    this.hero = this.heroesService.getHeroById(String(this.heroId));
   }
 
   deleteHero(id?: string) {
-    this.heroesService.deleteHero(id).subscribe(() => this.goBack());
+    this.heroesService.deleteHero(id).subscribe((confirm) => {
+      if (confirm) this.goBack();
+    });
   }
 
-  editHero() {
-    if (this.hero) {
-      this.heroesService.editHero(this.hero).subscribe({
-        complete: () => {
-          this.hero = this.store.selectSnapshot(HeroesState.selectHeroById)(
-            String(this.heroId)
-          );
-        },
-      });
-    }
+  editHero(heroe: Heroes) {
+    this.heroesService.editHero(heroe).subscribe({
+      complete: () => {
+        this.hero = this.heroesService.getHeroById(String(this.heroId));
+      },
+    });
   }
 
   goBack() {

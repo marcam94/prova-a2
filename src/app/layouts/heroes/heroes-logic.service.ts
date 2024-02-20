@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { EMPTY, Observable, of } from 'rxjs';
 import { concatMap, switchMap, take } from 'rxjs/operators';
 import {
@@ -26,7 +26,7 @@ export class HeroesLogicService {
     private store: Store,
     private dialog: DialogService
   ) {}
-
+  @Select(HeroesState.allHeroes) allHeroes$!: Observable<Heroes[]>
   public deleteHero(id?: string): Observable<any> {
     if (!id) {
       throw new Error('No se ha seleccionado un heroe');
@@ -45,8 +45,15 @@ export class HeroesLogicService {
     return this.store.selectSnapshot(HeroesState.selectHeroesByName)(filter);
   }
 
+  public getHeroById(id: string): Observable<Heroes | undefined> {
+    return this.store.select(HeroesState.selectHeroById)
+      .pipe(
+        switchMap(selectHeroById => of(selectHeroById(id)))
+      )
+  }
+
   public getAll(): Observable<Heroes[]> {
-    return this.store.select(HeroesState.selectStateData);
+    return this.allHeroes$
   }
 
   public editHero(hero: Heroes): Observable<any> {

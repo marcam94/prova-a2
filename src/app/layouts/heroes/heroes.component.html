@@ -4,58 +4,25 @@
       <button (click)="addNewHero()" color="primary" mat-raised-button>
         Añadir nuevo heroe
       </button>
-      <button
-        (click)="value = ''; findByName()"
-        [disabled]="!value"
-        color="secundary"
-        mat-raised-button>
-        Limpiar filtro
-      </button>
     </div>
     <div class="basis-1/4">
-      <label
-        class="mb-2 text-sm font-medium sr-only"
-        for="search"
-      >Buscar</label
-      >
-      <div class="relative">
-        <div
-          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <svg
-            aria-hidden="true"
-            class="w-4 h-4 text-dark"
-            fill="none"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2" />
-          </svg>
-        </div>
-        <input
-          [(ngModel)]="value"
-          class="block w-full p-4 ps-10 text-sm text-black border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-          id="search"
-          placeholder="Buscar heroe por su nombre..."
-          type="search" />
-        <button
-          (click)="findByName()"
-
-          class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          type="submit">
-          Buscar
+      <mat-form-field appearance="outline" class="w-full mt-5">
+        <mat-label>Buscar heroe</mat-label>
+        <button (click)="findByName()" aria-label="Find" mat-icon-button matPrefix>
+          <mat-icon>search</mat-icon>
         </button>
-      </div>
+        <input [(ngModel)]="value" matInput type="text" class="rounded-2xl">
+        <button (click)="value=''; findByName()" [disabled]="!value" aria-label="Clear" mat-icon-button matSuffix>
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
     </div>
     <mat-paginator
+      (page)="pageChanged($event)"
       [length]="length"
-      [pageSize]="pageSize"
       [pageIndex]="pageIndex"
       [pageSizeOptions]="[5, 10, 25, 100]"
-      (page)="pageChanged($event)">
+      [pageSize]="pageSize">
     </mat-paginator>
   </div>
 
@@ -64,25 +31,27 @@
       <mat-card appearance="raised" class="mat-card-flex basis-1/4">
         <div class="basis-2/3">
           <img
-            class="rounded-lg"
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-            alt="Photo of a Shiba Inu" />
+            class="rounded-sm w-full h-full"
+            src="{{hero.imagen_url}}"
+            alt="hero pic" />
         </div>
         <div class="flex flex-col basis-2/3">
           <mat-card-header class="flex flex-col gap-2">
             <span class="font-bold">{{ hero.nombre | titlecase }} </span>
             <span>{{ hero.alias | titlecase }}</span>
-            <img *ngIf="hero.tags === 'marvel'" ngSrc="assets/imgs/logos/marvel-logo.png" alt="logo" height="36"
-                 width="36">
-            <img *ngIf="hero.tags !== 'marvel'" ngSrc="assets/imgs/logos/dc.png" alt="logo" height="36"
-                 width="36">
+             @if(hero.tags === 'marvel'){
+               <img ngSrc="assets/imgs/logos/marvellog_48x48.webp" alt="logo" height="48"
+                    width="48">
+             } @else {
+               <img ngSrc="assets/imgs/logos/dc.png" alt="logo" height="36"
+                    width="36">
+             }
           </mat-card-header>
           <mat-card-actions class="mt-auto ml-auto">
             <button
               mat-raised-button
               color="primary"
               [routerLink]="['detalle', hero.id]">
-              <mat-icon>remove_red_eye</mat-icon>
               Ver más
             </button>
           </mat-card-actions>

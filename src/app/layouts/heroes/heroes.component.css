@@ -1,6 +1,8 @@
-
-
 .mat-card-flex{
   display: flex !important;
   flex-direction: row !important;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 20px;
 }

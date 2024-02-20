@@ -16,9 +16,9 @@ import {
   DialogOpt,
   DialogService,
 } from '../../shared/components/ui-common/dialog/dialog.service';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatFormField, MatLabel, MatPrefix, MatSuffix } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesLogicService } from './heroes-logic.service';
@@ -43,7 +43,8 @@ import { NavbarComponent } from '../../shared/components';
     FormsModule,
     MatIconButton,
     MatLabel,
-    MatIcon,
+    MatIconModule,
+    MatSuffix,
     MatInput,
     RouterOutlet,
     RouterLink,
@@ -52,6 +53,7 @@ import { NavbarComponent } from '../../shared/components';
     TitleCasePipe,
     NgOptimizedImage,
     NgIf,
+    MatPrefix,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',

@@ -15,14 +15,6 @@ export class AuthService {
   constructor() {
     if (sessionStorage?.getItem(SESSION_KEY)) this._isLoggedIn.next(true)
   }
-
-/*  isLogged(): Observable<boolean> {
-    if (sessionStorage.getItem(SESSION_KEY)) {
-      return of(true);
-    }
-    return of(false);
-  }*/
-
   getUserName(): Observable<string | null> {
     return of(sessionStorage.getItem(SESSION_KEY));
   }
