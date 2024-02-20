@@ -18,4 +18,8 @@ body {
   background-color: transparent !important;
 }
 
+.mdc-notched-outline__notch
+{
+  border-right: none !important;
+}
 

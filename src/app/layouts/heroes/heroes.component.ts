@@ -9,7 +9,7 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { AsyncPipe, JsonPipe, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgIf, NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import {
@@ -50,6 +50,8 @@ import { NavbarComponent } from '../../shared/components';
     MatPaginator,
     NavbarComponent,
     TitleCasePipe,
+    NgOptimizedImage,
+    NgIf,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',

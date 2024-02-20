@@ -60,19 +60,22 @@
   </div>
 
   <div class="flex flex-row flex-wrap gap-4 justify-start">
-      @for (hero of heroes(); track hero.id) {
-        <mat-card appearance="raised" class="mat-card-flex basis-1/4">
-          <div class="basis-2/3">
+    @for (hero of heroes(); track hero.id) {
+      <mat-card appearance="raised" class="mat-card-flex basis-1/4">
+        <div class="basis-2/3">
           <img
             class="rounded-lg"
             src="https://material.angular.io/assets/img/examples/shiba2.jpg"
             alt="Photo of a Shiba Inu" />
-          </div>
-          <div class="flex flex-col basis-2/3">
+        </div>
+        <div class="flex flex-col basis-2/3">
           <mat-card-header class="flex flex-col gap-2">
-            <span class="font-bold">{{hero.nombre | titlecase}} </span>
-            <span>{{hero.alias | titlecase}}</span>
-            <span>{{hero.tags}}</span>
+            <span class="font-bold">{{ hero.nombre | titlecase }} </span>
+            <span>{{ hero.alias | titlecase }}</span>
+            <img *ngIf="hero.tags === 'marvel'" ngSrc="assets/imgs/logos/marvel-logo.png" alt="logo" height="36"
+                 width="36">
+            <img *ngIf="hero.tags !== 'marvel'" ngSrc="assets/imgs/logos/dc.png" alt="logo" height="36"
+                 width="36">
           </mat-card-header>
           <mat-card-actions class="mt-auto ml-auto">
             <button
@@ -83,9 +86,8 @@
               Ver más
             </button>
           </mat-card-actions>
-          </div>
-
-        </mat-card>
-      }
+        </div>
+      </mat-card>
+    }
   </div>
 </div>

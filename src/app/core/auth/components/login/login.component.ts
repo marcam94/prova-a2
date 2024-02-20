@@ -16,6 +16,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { AuthService } from '../../services/auth.service';
 import { take } from 'rxjs';
 import { NgClass } from '@angular/common';
+import { ErrorsFormComponent } from '../../../../shared/components';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,7 @@ import { NgClass } from '@angular/common';
     MatFormFieldModule,
     MatCheckbox,
     NgClass,
+    ErrorsFormComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',

@@ -1,43 +1,65 @@
-<form class="h-full flex flex-col" [formGroup]="heroesForm">
-  <div class="flex flex-row flex-wrap justify-center flex-grow">
-    <mat-form-field class="w-full">
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="nombre" class="w-full" />
-    </mat-form-field>
-    <mat-form-field class="w-full">
-      <mat-label>Alias</mat-label>
-      <input matInput formControlName="alias" class="w-full" />
+<form class="h-full flex flex-col px-10" [formGroup]="heroesForm">
+  <div class="flex flex-row gap-5 mt-5">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" class="w-full" />
+        <mat-error>
+          <app-errors-form-wrapper [errors]="heroesForm.get('nombre')?.errors"></app-errors-form-wrapper>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Alias</mat-label>
+        <input matInput formControlName="alias" class="w-full" />
+        <mat-error>
+          <app-errors-form-wrapper [errors]="heroesForm.get('alias')?.errors"></app-errors-form-wrapper>
+        </mat-error>
+      </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Tag</mat-label>
+      <mat-select formControlName="tags">
+        <mat-option value="dc">DC Comics</mat-option>
+        <mat-option value="marvel">Marvel</mat-option>
+      </mat-select>
+      <mat-error>
+        <app-errors-form-wrapper [errors]="heroesForm.get('tags')?.errors"></app-errors-form-wrapper>
+      </mat-error>
     </mat-form-field>
   </div>
-  <div class="flex flex-row flex-wrap justify-center flex-grow">
-    <mat-form-field class="w-full">
-      <mat-label>Descripción</mat-label>
-      <input matInput formControlName="descripcion" class="w-full" />
-    </mat-form-field>
-    <mat-form-field class="w-full">
-      <mat-label>Imagen</mat-label>
+  <div class="flex flex-row gap-5 mt-5">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Imagen URL externa</mat-label>
       <input matInput formControlName="imagen_url" class="w-full" />
+      <mat-error>
+        <app-errors-form-wrapper [errors]="heroesForm.get('imagen_url')?.errors"></app-errors-form-wrapper>
+      </mat-error>
     </mat-form-field>
   </div>
-  <!--FIXME-->
-  <div class="flex justify-center overflow-auto">
-    <mat-form-field class="w-full h-44 flex-grow">
+  <div class="flex flex-row gap-5 mt-5">
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="descripcion" class="w-full textarea-size"></textarea>
+    <mat-error>
+      <app-errors-form-wrapper [errors]="heroesForm.get('descripcion')?.errors"></app-errors-form-wrapper>
+    </mat-error>
+  </mat-form-field>
+  </div>
+  <div class="flex flex-row gap-5 mt-5">
+    <mat-form-field appearance="outline" class="w-full">
       <mat-label>Historia</mat-label>
-      <textarea
-        matInput
-        formControlName="historia"
-        class="w-full h-full"></textarea>
+      <textarea matInput formControlName="historia" class="w-full textarea-size"></textarea>
+      <mat-error>
+        <app-errors-form-wrapper [errors]="heroesForm.get('historia')?.errors"></app-errors-form-wrapper>
+      </mat-error>
     </mat-form-field>
   </div>
-
-  <mat-dialog-actions class="mat-dialog-actions-button">
+  <mat-dialog-actions class="mat-dialog-actions-button mt-auto">
     <button mat-raised-button (click)="closeDialog()">Cancelar</button>
     <button
       mat-raised-button
       [disabled]="heroesForm.invalid"
       (click)="submitForm()"
       color="primary">
-      Ok
+      Enviar
     </button>
   </mat-dialog-actions>
 </form>

@@ -14,10 +14,12 @@ import {
 } from '@angular/forms';
 import { MatCard } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDialogActions } from '@angular/material/dialog';
 import { DialogService } from '../../../shared/components/ui-common/dialog/dialog.service';
+import { MatOption, MatSelect } from '@angular/material/select';
+import { ErrorsFormComponent } from '../../../shared/components';
 
 @Component({
   selector: 'heroes-form',
@@ -30,6 +32,10 @@ import { DialogService } from '../../../shared/components/ui-common/dialog/dialo
     MatInput,
     MatLabel,
     MatDialogActions,
+    MatSelect,
+    MatOption,
+    ErrorsFormComponent,
+    MatError,
   ],
   templateUrl: './heroes-form.component.html',
   styleUrl: './heroes-form.component.css',
@@ -37,13 +43,15 @@ import { DialogService } from '../../../shared/components/ui-common/dialog/dialo
 export class HeroesFormComponent implements OnInit {
   @Output() outputData = new EventEmitter();
   @Input() inputData!: [{ name: string; value: any }];
+  private expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
   private readonly dialogService = inject(DialogService);
   heroesForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     alias: new FormControl('', [Validators.required]),
     descripcion: new FormControl('', [Validators.required]),
-    imagen_url: new FormControl(''),
+    imagen_url: new FormControl('', [Validators.pattern(this.expression), Validators.required]),
     historia: new FormControl('', [Validators.required]),
+    tags: new FormControl('', [Validators.required]),
   });
 
   constructor() {}
