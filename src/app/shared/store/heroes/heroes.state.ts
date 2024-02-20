@@ -9,7 +9,7 @@ import {
   GetHeroes,
   UpdateHeroes,
 } from './heroes.action';
-import { filter, first, take, tap } from 'rxjs';
+import { filter, tap } from 'rxjs';
 import { AuthService } from '../../../core/auth/services/auth.service';
 
 export class HeroesStateModel {
@@ -24,16 +24,13 @@ export class HeroesStateModel {
 })
 @Injectable()
 export class HeroesState implements NgxsOnInit {
-  private readonly authService = inject(AuthService)
+  private readonly authService = inject(AuthService);
   private readonly heroesService = inject(HeroesService);
 
   constructor() {}
 
   ngxsOnInit(ctx: StateContext<any>): void {
-    this.authService.isLogged.pipe(
-      tap(res => console.log(res)),
-      filter(res => res),
-    ).subscribe(() => {
+    this.authService.isLogged.pipe(filter(res => res)).subscribe(() => {
       ctx.dispatch(new GetHeroes());
     });
   }
@@ -53,9 +50,7 @@ export class HeroesState implements NgxsOnInit {
   @Selector()
   static selectHeroesByName(state: HeroesStateModel) {
     return (substring: string) => {
-      return state.heroes.filter(hero =>
-        hero.nombre.toLowerCase().includes(substring.toLowerCase())
-      );
+      return state.heroes.filter(hero => hero.nombre.includes(substring));
     };
   }
 
@@ -107,8 +102,9 @@ export class HeroesState implements NgxsOnInit {
     ctx: StateContext<HeroesStateModel>,
     { id }: DeleteHeroes
   ) {
-    return this.heroesService.delete(id).pipe(
+    return this.heroesService.delete(id); /*.pipe(
       tap(res => {
+        console.log(res);
         if (res) {
           const state = ctx.getState();
           const filteredArray = state.heroes.filter(
@@ -121,6 +117,6 @@ export class HeroesState implements NgxsOnInit {
           });
         }
       })
-    );
+    );*/
   }
 }

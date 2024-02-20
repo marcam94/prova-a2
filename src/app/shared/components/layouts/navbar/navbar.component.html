@@ -1,12 +1,14 @@
-<mat-toolbar color="primary">
-  <span>My App</span>
+<mat-toolbar class="navbar-bg px-15">
+  <span class="text-white">My App</span>
   <span class="example-spacer"></span>
-  <div class="profile-image">
+  <div class="flex flex-row gap-4">
+  <div class="text-white">
     <mat-icon>face</mat-icon>
   </div>
-  <span class="profile-name">{{ username$ | async | titlecase }}</span>
-  <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
+  <span class="text-white">{{ username$ | async | titlecase }}</span>
+  <mat-icon class="text-white cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
   <mat-menu #menu="matMenu">
     <button (click)="logout()" mat-menu-item>Logout</button>
   </mat-menu>
+  </div>
 </mat-toolbar>

@@ -42,9 +42,7 @@ export class HeroesLogicService {
   }
 
   public getHeroesByFilter(filter: string): Heroes[] {
-    return this.store.selectSnapshot(HeroesState.selectHeroesByName)(
-      String(filter)
-    );
+    return this.store.selectSnapshot(HeroesState.selectHeroesByName)(filter);
   }
 
   public getAll(): Observable<Heroes[]> {

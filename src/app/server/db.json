@@ -1,36 +1,12 @@
 {
   "Heroes": [
     {
-      "Name": "calla calvo",
-      "Alias": "Tony Stark",
-      "Description": "enio, millonario, playboy y filántropo que se convierte en el poderoso Iron Guardian con su armadura tecnológica.",
-      "SrcImg": "ruta/imagen_iron_guardian.jpg",
-      "History": "Después de ser secuestrado, Tony Stark crea una armadura para escapar y decide usarla para luchar contra la injusticia.",
-      "id": "marvel001"
-    },
-    {
-      "id": "b7a6",
-      "Name": "asdads",
-      "Alias": "dasdas",
-      "Description": "dasdsa",
-      "SrcImg": "dasd",
-      "History": "dsad"
-    },
-    {
-      "id": "63a8",
-      "Name": "dasd",
-      "Alias": "dsadas",
-      "Description": "dsdsa",
-      "SrcImg": "dd",
-      "History": "d"
-    },
-    {
-      "id": "3f4f",
-      "Name": "asds",
-      "Alias": "ds",
-      "Description": "d",
-      "SrcImg": "d",
-      "History": "d"
+      "id": "6688",
+      "Name": "jose",
+      "Alias": "a",
+      "Description": "a",
+      "SrcImg": "a",
+      "History": "a"
     }
   ]
 }

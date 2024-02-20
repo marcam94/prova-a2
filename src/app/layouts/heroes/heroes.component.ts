@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   MatCard,
   MatCardActions,
@@ -9,8 +9,7 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { AsyncPipe, JsonPipe } from '@angular/common';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { AsyncPipe, JsonPipe, TitleCasePipe } from '@angular/common';
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import {
@@ -23,7 +22,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesLogicService } from './heroes-logic.service';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { NavbarComponent } from '../../shared/components';
 
 @Component({
@@ -50,6 +49,7 @@ import { NavbarComponent } from '../../shared/components';
     RouterLink,
     MatPaginator,
     NavbarComponent,
+    TitleCasePipe,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
@@ -57,14 +57,33 @@ import { NavbarComponent } from '../../shared/components';
 export class HeroesComponent implements OnInit {
   private readonly heroesService = inject(HeroesLogicService);
   private readonly dialog = inject(DialogService);
-  allHeroes: Subject<Heroes[]> = new BehaviorSubject<Heroes[]>([]);
+  heroes = signal<Heroes[]>([]);
+  length = 0;
+  pageSize = 5;
+  pageIndex = 0;
   title!: string;
   value!: string;
 
   ngOnInit(): void {
+    this.loadHeroes();
+  }
+
+  loadHeroes(): void {
     this.heroesService.getAll().subscribe(data => {
-      this.allHeroes.next(data);
+      this.heroes.set(
+        data.slice(
+          this.pageIndex * this.pageSize,
+          (this.pageIndex + 1) * this.pageSize
+        )
+      );
+      this.length = data.length;
     });
+  }
+
+  pageChanged(event: PageEvent): void {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadHeroes();
   }
 
   addNewHero() {
@@ -88,14 +107,13 @@ export class HeroesComponent implements OnInit {
   }
 
   findByName() {
-    this.allHeroes.next(this.heroesService.getHeroesByFilter(this.value));
-  }
-
-  deleteHero(id?: string) {
-    this.heroesService.deleteHero(id).subscribe();
-  }
-
-  editHero(hero: Heroes) {
-    this.heroesService.editHero(hero).subscribe();
+    if (this.value && this.value.trim() !== '') {
+      const data = this.heroesService.getHeroesByFilter(this.value);
+      console.log(data);
+      this.heroes.set(data);
+      this.length = data.length;
+    } else {
+      this.loadHeroes();
+    }
   }
 }
