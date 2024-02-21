@@ -14,12 +14,13 @@ body {
 
 
 /*OVERRIDE MATERIAL STYLES*/
+
+
+
 .mat-mdc-paginator{
   background-color: transparent !important;
 }
-.mat-mdc-card{
-  background-color: transparent !important;
-}
+
 
 .mdc-notched-outline__notch
 {

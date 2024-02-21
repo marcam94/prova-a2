@@ -1,11 +1,15 @@
-<mat-toolbar class="navbar-bg px-15">
-  <span class="text-white">My App</span>
-  <span class="example-spacer"></span>
+<mat-toolbar class="navbar-bg">
+  <a [routerLink]="['/home']">
+  <div class="text-black flex flex-row justify-items-start gap-3">HeroDB <img ngSrc="../../../../../assets/imgs/logos/shield.png" alt="icon-title" width="32"
+                                                          height="32">
+  </div>
+    </a>
+  <span class="spacer"></span>
   <div class="flex flex-row gap-4">
   <div class="text-white">
     <mat-icon>face</mat-icon>
   </div>
-  <span class="text-white">{{ username$ | async | titlecase }}</span>
+  <span class="text-black">{{ username$ | async | titlecase }}</span>
   <mat-icon class="text-white cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
   <mat-menu #menu="matMenu">
     <button (click)="logout()" mat-menu-item>Logout</button>

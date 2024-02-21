@@ -43,7 +43,7 @@ import { ErrorsFormComponent } from '../../../shared/components';
 export class HeroesFormComponent implements OnInit {
   @Output() outputData = new EventEmitter();
   @Input() inputData!: [{ name: string; value: any }];
-  private expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+  private expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(jpg|jpeg|png|gif|webp))$/gi;
   private readonly dialogService = inject(DialogService);
   heroesForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
@@ -75,7 +75,7 @@ export class HeroesFormComponent implements OnInit {
 
   private setFormValues(inputData: [{ name: string; value: any }]) {
     let inputDataObject: { [key: string]: any } = {};
-    for (let item of inputData) {
+    for (const item of inputData) {
       inputDataObject = { ...item.value };
     }
     this.heroesForm.patchValue({ ...inputDataObject });

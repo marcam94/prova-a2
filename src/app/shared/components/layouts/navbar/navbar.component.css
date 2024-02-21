@@ -1,9 +1,8 @@
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
 .navbar-bg {
-  padding: 0 75px !important;
-  background-color: #14213D !important;
+  background-color: #F1D302 !important;
   max-height: 64px !important;
 }

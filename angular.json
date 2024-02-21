@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "clearScreen": true,
             "outputPath": "dist/prova-a2",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -21,7 +22,6 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "node_modules/ngx-spinner/animations/ball-circus.css",
               "src/styles.css"
             ],
             "scripts": [],

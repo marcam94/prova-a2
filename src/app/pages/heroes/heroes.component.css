@@ -6,3 +6,7 @@
 :host ::ng-deep .mdc-text-field--outlined {
   --mdc-outlined-text-field-container-shape: 20px;
 }
+
+.mat-mdc-fab{
+  background-color: rgb(29 78 216) !important;
+}

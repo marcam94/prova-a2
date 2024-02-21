@@ -3,7 +3,7 @@ import { Heroes } from '../../../entity/heroes';
 
 export class HeroesMapper {
   static mapFrom(heroModel: HeroesModel): Heroes {
-    const regExpSrc = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+    const regExpSrc = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(jpg|jpeg|png|gif|webp))$/gi;
     const notFoundImgSrc = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
     return {
       id: heroModel.id,

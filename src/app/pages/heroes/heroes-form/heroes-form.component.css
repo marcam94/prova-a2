@@ -2,6 +2,9 @@
   display: flex !important;
   justify-content: flex-end !important;
   gap: 4px !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  margin-top: auto !important;
 }
 
 .textarea-size{

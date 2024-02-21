@@ -147,6 +147,4 @@ export class HeroesComponent implements OnInit {
       this.loadHeroes();
     }
   }
-
-  goBack() {}
 }

@@ -1,20 +1,20 @@
 <ng-container *ngIf="hero | async as heroe">
-  <div class="flex-1 p-44 flex flex-col gap-4">
-    <mat-card appearance="outlined" class="w-3/6 m-auto">
+  <div class="flex-1 p-14 md:p-44 flex flex-col gap-4">
+    <mat-card appearance="outlined" class="w-full md:w-3/6 m-auto">
       <mat-card-header class="flex flex-row justify-between">
         <mat-card-title
         >{{ heroe?.nombre | titlecase }} más conocido como
           {{ heroe?.alias | titlecase }}
         </mat-card-title>
         <div class="flex flex-row">
-          <!--        <button (click)="goBack()" mat-menu-item>-->
-          <!--          <mat-icon>arrow_back</mat-icon>-->
-          <!--        </button>-->
           <button (click)="editHero(heroe)" mat-menu-item>
             <mat-icon class="size-0.5" >edit</mat-icon>
           </button>
           <button (click)="deleteHero(heroe?.id)" mat-menu-item>
             <mat-icon class="size-0.5">delete</mat-icon>
+          </button>
+          <button (click)="goBack()" mat-menu-item>
+            <mat-icon>arrow_back</mat-icon>
           </button>
         </div>
       </mat-card-header>
