@@ -62,7 +62,7 @@
                       d="M1 5h12m0 0L9 1m4 4L9 9" />
               </svg>
             </a>
-              <button [matMenuTriggerFor]="menu"><mat-icon class="text-white">more_vert</mat-icon></button>
+              <button class="transition hover:opacity-70 hover:scale-125" [matMenuTriggerFor]="menu"><mat-icon class="text-white">more_vert</mat-icon></button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="editHero(hero)" ><mat-icon>edit</mat-icon>Editar</button>
                 <button mat-menu-item (click)="deleteHero(hero.id)" ><mat-icon>delete</mat-icon>Eliminar</button>

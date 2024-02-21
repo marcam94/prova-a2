@@ -16,7 +16,6 @@ import { switchMap } from 'rxjs/operators';
 export class HeroesStateModel {
   heroes: Heroes[] = [];
 }
-const SESSION_KEY = 'username';
 @State<HeroesStateModel>({
   name: 'heroestate',
   defaults: {

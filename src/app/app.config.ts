@@ -18,11 +18,13 @@ import {
   LoadingInterceptor,
   spinnerInterceptor,
 } from './shared/components/util-common/interceptors/loading-interceptor/loading-interceptor';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(),
+    provideAnimations(),
     provideAnimationsAsync(),
     provideHttpClient(
       withFetch(),
