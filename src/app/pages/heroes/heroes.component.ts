@@ -40,6 +40,7 @@ import { HeroesLogicService } from './heroes-logic.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { NavbarComponent } from '../../shared/components';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { UpperCaseDirective } from '../../shared/utils/directives/upper-case.directive';
 
 @Component({
   selector: 'app-heroes',
@@ -74,6 +75,7 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
     MatMenuTrigger,
     MatMenu,
     MatMenuItem,
+    UpperCaseDirective,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',

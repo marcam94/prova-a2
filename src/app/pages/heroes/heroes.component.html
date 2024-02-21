@@ -3,7 +3,7 @@
     <div class="basis-1/4">
       <mat-form-field appearance="outline" class="w-full mt-5">
         <mat-label>Buscar heroe</mat-label>
-        <input [(ngModel)]="value" class="rounded-2xl" matInput type="text">
+        <input [(ngModel)]="value" upperCase class="rounded-2xl" matInput type="text">
         @if (value) {
           <button (click)="value=''; findByName()" aria-label="Clear" mat-icon-button matSuffix>
             <mat-icon>clear</mat-icon>
