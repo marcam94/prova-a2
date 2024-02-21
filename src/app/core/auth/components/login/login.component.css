@@ -1,7 +1,7 @@
-.mat-mdc-unelevated-button:not(:disabled){
+.mat-mdc-unelevated-button:not(:disabled) {
   background-color: rgb(29 78 216) !important;
 }
 
-.login-btn{
+.login-btn {
   height: 50px !important;
 }

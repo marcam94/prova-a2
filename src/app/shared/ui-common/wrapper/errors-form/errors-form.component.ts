@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {ValidationErrors} from '@angular/forms';
-import {KeyValuePipe} from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-errors-form-wrapper',
@@ -14,7 +14,7 @@ import {KeyValuePipe} from '@angular/common';
  * En caso de que queramos controlar más errores se añaden al objeto dinamico erroresForm.
  */
 export class ErrorsFormComponent {
-  @Input({required: true}) errors!: ValidationErrors | any;
+  @Input({ required: true }) errors!: ValidationErrors | any;
 
   erroresForm: { [key: string]: string | unknown } = {
     required: 'Campo requerido',
@@ -23,7 +23,7 @@ export class ErrorsFormComponent {
     minlength: (value: any) =>
       `La longitud debe ser de al menos, ${value.requiredLength}`,
     email: 'Email requerido o no valido',
-    pattern: 'URL incorrecta'
+    pattern: 'URL incorrecta',
   };
 
   getError(error: { key: string | unknown; value: any }) {

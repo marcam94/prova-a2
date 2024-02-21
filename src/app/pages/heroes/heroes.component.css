@@ -1,4 +1,4 @@
-.mat-card-flex{
+.mat-card-flex {
   display: flex !important;
   flex-direction: row !important;
 }
@@ -7,6 +7,6 @@
   --mdc-outlined-text-field-container-shape: 20px;
 }
 
-.mat-mdc-fab{
+.mat-mdc-fab {
   background-color: rgb(29 78 216) !important;
 }

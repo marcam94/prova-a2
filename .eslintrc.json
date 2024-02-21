@@ -1,6 +1,6 @@
 {
   "root": true,
-  
+
   "ignorePatterns": ["projects/**/*"],
   "rules": {
     "prettier/prettier": 0

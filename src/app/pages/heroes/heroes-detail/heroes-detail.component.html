@@ -3,12 +3,12 @@
     <mat-card appearance="outlined" class="w-full md:w-3/6 m-auto">
       <mat-card-header class="flex flex-row justify-between flex-wrap-reverse">
         <mat-card-title
-        >{{ heroe?.nombre | titlecase }} más conocido como
+          >{{ heroe?.nombre | titlecase }} más conocido como
           {{ heroe?.alias | titlecase }}
         </mat-card-title>
         <div class="flex flex-row m-auto md:m-0">
           <button (click)="editHero(heroe)" mat-menu-item>
-            <mat-icon class="transition hover:opacity-70" >edit</mat-icon>
+            <mat-icon class="transition hover:opacity-70">edit</mat-icon>
           </button>
           <button (click)="deleteHero(heroe?.id)" mat-menu-item>
             <mat-icon class="transition hover:opacity-70">delete</mat-icon>
@@ -19,12 +19,18 @@
         </div>
       </mat-card-header>
       <div class="mat-card-tags mb-5">
-        @if(heroe?.tags === 'marvel'){
-          <img ngSrc="assets/imgs/logos/marvellog_48x48.webp" alt="logo" height="48"
-               width="48">
+        @if (heroe?.tags === 'marvel') {
+          <img
+            ngSrc="assets/imgs/logos/marvellog_48x48.webp"
+            alt="logo"
+            height="48"
+            width="48" />
         } @else {
-          <img ngSrc="assets/imgs/logos/dc.png" alt="logo" height="36"
-               width="36">
+          <img
+            ngSrc="assets/imgs/logos/dc.png"
+            alt="logo"
+            height="36"
+            width="36" />
         }
       </div>
       <mat-card-content class="mat-card-content-flex">
@@ -35,10 +41,12 @@
             src="{{ heroe?.imagen_url }}"
             style="height: 100%; width: 100%" />
         </div>
-        <div class="md:basis-1/2 overflow-auto md:px-6" style="max-height: 300px">
-        <span>
-          {{ heroe?.descripcion }}
-        </span>
+        <div
+          class="md:basis-1/2 overflow-auto md:px-6"
+          style="max-height: 300px">
+          <span>
+            {{ heroe?.descripcion }}
+          </span>
         </div>
       </mat-card-content>
       <mat-accordion class="mt-5">

@@ -5,13 +5,13 @@
   padding: 0 10px;
   gap: 10px;
 }
+
 @media screen and (max-width: 768px) {
   .mat-card-content-flex {
     flex-wrap: wrap;
   }
 }
 
-.mat-card-tags{
+.mat-card-tags {
   padding-left: 16px;
 }
-

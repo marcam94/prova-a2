@@ -38,8 +38,6 @@ import { ErrorsFormComponent } from '../../../../shared';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  private readonly router = inject(Router);
-  private readonly authService = inject(AuthService);
   public hide = true;
   public loginForm = new FormGroup({
     name: new FormControl('', [
@@ -49,6 +47,8 @@ export class LoginComponent implements OnInit {
     ]),
     password: new FormControl('', Validators.required),
   });
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
   ngOnInit(): void {
     sessionStorage.clear();

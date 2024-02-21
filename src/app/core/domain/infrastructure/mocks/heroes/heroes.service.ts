@@ -11,6 +11,7 @@ import { HeroesMapper } from './heroes.mapper';
 export class HeroesService {
   private readonly apiUrl = 'http://localhost:3000/Heroes';
   private readonly http = inject(HttpClient);
+
   constructor() {}
 
   getAllHeroes(): Observable<Heroes[]> {

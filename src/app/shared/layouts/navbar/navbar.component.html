@@ -1,18 +1,25 @@
 <mat-toolbar class="navbar-bg">
   <a [routerLink]="['/home']">
-  <div class="text-black flex flex-row justify-items-start gap-3">HeroDB <img ngSrc="../../../../../assets/imgs/logos/shield.png" alt="icon-title" width="32"
-                                                          height="32">
-  </div>
-    </a>
+    <div class="text-black flex flex-row justify-items-start gap-3">
+      HeroDB
+      <img
+        ngSrc="../../../../../assets/imgs/logos/shield.png"
+        alt="icon-title"
+        width="32"
+        height="32" />
+    </div>
+  </a>
   <span class="spacer"></span>
   <div class="flex flex-row gap-4">
-  <div class="text-black">
-    <mat-icon>face</mat-icon>
-  </div>
-  <span class="text-black">{{ username$ | async | titlecase }}</span>
-  <mat-icon class="text-black cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
-  <mat-menu #menu="matMenu">
-    <button (click)="logout()" mat-menu-item>Logout</button>
-  </mat-menu>
+    <div class="text-black">
+      <mat-icon>face</mat-icon>
+    </div>
+    <span class="text-black">{{ username$ | async | titlecase }}</span>
+    <mat-icon class="text-black cursor-pointer" [matMenuTriggerFor]="menu"
+      >expand_more</mat-icon
+    >
+    <mat-menu #menu="matMenu">
+      <button (click)="logout()" mat-menu-item>Logout</button>
+    </mat-menu>
   </div>
 </mat-toolbar>

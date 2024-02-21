@@ -1,6 +1,13 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AsyncPipe, JsonPipe, Location, NgIf, NgOptimizedImage, TitleCasePipe } from '@angular/common';
+import {
+  AsyncPipe,
+  JsonPipe,
+  Location,
+  NgIf,
+  NgOptimizedImage,
+  TitleCasePipe,
+} from '@angular/common';
 import {
   MatCard,
   MatCardContent,
@@ -28,7 +35,29 @@ import { Observable } from 'rxjs';
   standalone: true,
   templateUrl: './heroes-detail.component.html',
   styleUrl: './heroes-detail.component.css',
-  imports: [MatCard, MatCardHeader, MatCardContent, AsyncPipe, JsonPipe, MatCardImage, MatCardTitle, MatCardSubtitle, MatAccordion, MatExpansionPanel, MatExpansionPanelTitle, MatExpansionPanelDescription, MatExpansionPanelHeader, TitleCasePipe, MatMenuTrigger, MatMenu, MatMenuItem, MatButton, MatIcon, NgOptimizedImage, NgIf],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    AsyncPipe,
+    JsonPipe,
+    MatCardImage,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatAccordion,
+    MatExpansionPanel,
+    MatExpansionPanelTitle,
+    MatExpansionPanelDescription,
+    MatExpansionPanelHeader,
+    TitleCasePipe,
+    MatMenuTrigger,
+    MatMenu,
+    MatMenuItem,
+    MatButton,
+    MatIcon,
+    NgOptimizedImage,
+    NgIf,
+  ],
 })
 export class HeroesDetailComponent implements OnInit {
   @Input() heroId!: number | string;
@@ -43,7 +72,7 @@ export class HeroesDetailComponent implements OnInit {
   }
 
   deleteHero(id?: string) {
-    this.heroesService.deleteHero(id).subscribe((confirm) => {
+    this.heroesService.deleteHero(id).subscribe(confirm => {
       if (confirm) this.goBack();
     });
   }

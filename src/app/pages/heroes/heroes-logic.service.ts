@@ -12,18 +12,22 @@ import {
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import { HeroesState } from '../../shared/store/heroes/heroes.state';
-import { DialogOpt, DialogService } from '../../shared/ui-common/dialog/dialog.service';
+import {
+  DialogOpt,
+  DialogService,
+} from '../../shared/ui-common/dialog/dialog.service';
 import { DialogComponent } from '../../shared';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroesLogicService {
+  @Select(HeroesState.allHeroes) allHeroes$!: Observable<Heroes[]>;
+
   constructor(
     private store: Store,
     private dialog: DialogService
   ) {}
-  @Select(HeroesState.allHeroes) allHeroes$!: Observable<Heroes[]>;
 
   public deleteHero(id?: string): Observable<any> {
     if (!id) {

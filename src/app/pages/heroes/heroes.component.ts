@@ -37,7 +37,10 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { UpperCaseDirective } from '../../shared/utils/directives/upper-case.directive';
 import { NavbarComponent } from '../../shared';
-import { DialogOpt, DialogService } from '../../shared/ui-common/dialog/dialog.service';
+import {
+  DialogOpt,
+  DialogService,
+} from '../../shared/ui-common/dialog/dialog.service';
 
 @Component({
   selector: 'app-heroes',
@@ -78,14 +81,14 @@ import { DialogOpt, DialogService } from '../../shared/ui-common/dialog/dialog.s
   styleUrl: './heroes.component.css',
 })
 export class HeroesComponent implements OnInit {
-  private readonly heroesService = inject(HeroesLogicService);
-  private readonly dialog = inject(DialogService);
   heroes = signal<Heroes[]>([]);
   length = 0;
   pageSize = 6;
   pageIndex = 0;
   title!: string;
   value!: string;
+  private readonly heroesService = inject(HeroesLogicService);
+  private readonly dialog = inject(DialogService);
 
   ngOnInit(): void {
     this.loadHeroes();
@@ -138,12 +141,12 @@ export class HeroesComponent implements OnInit {
   }
 
   findByName() {
-    if (this.value && this.value.trim() !== '') {
+    if (!(this.value && this.value.trim() !== '')) {
+      this.loadHeroes();
+    } else {
       const data = this.heroesService.getHeroesByFilter(this.value);
       this.heroes.set(data);
       this.length = data.length;
-    } else {
-      this.loadHeroes();
     }
   }
 }

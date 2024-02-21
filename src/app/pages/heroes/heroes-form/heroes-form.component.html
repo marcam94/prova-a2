@@ -1,19 +1,21 @@
-<form class="h-full flex flex-col px-10" [formGroup]="heroesForm">
+<form [formGroup]="heroesForm" class="h-full flex flex-col px-10">
   <div class="flex flex-row flex-wrap gap-5 mt-5">
-      <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="nombre" class="w-full" />
-        <mat-error>
-          <app-errors-form-wrapper [errors]="heroesForm.get('nombre')?.errors"></app-errors-form-wrapper>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-full">
-        <mat-label>Alias</mat-label>
-        <input matInput formControlName="alias" class="w-full" />
-        <mat-error>
-          <app-errors-form-wrapper [errors]="heroesForm.get('alias')?.errors"></app-errors-form-wrapper>
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Nombre</mat-label>
+      <input class="w-full" formControlName="nombre" matInput />
+      <mat-error>
+        <app-errors-form-wrapper
+          [errors]="heroesForm.get('nombre')?.errors"></app-errors-form-wrapper>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Alias</mat-label>
+      <input class="w-full" formControlName="alias" matInput />
+      <mat-error>
+        <app-errors-form-wrapper
+          [errors]="heroesForm.get('alias')?.errors"></app-errors-form-wrapper>
+      </mat-error>
+    </mat-form-field>
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Tag</mat-label>
       <mat-select formControlName="tags">
@@ -21,44 +23,60 @@
         <mat-option value="marvel">Marvel</mat-option>
       </mat-select>
       <mat-error>
-        <app-errors-form-wrapper [errors]="heroesForm.get('tags')?.errors"></app-errors-form-wrapper>
+        <app-errors-form-wrapper
+          [errors]="heroesForm.get('tags')?.errors"></app-errors-form-wrapper>
       </mat-error>
     </mat-form-field>
   </div>
   <div class="flex flex-row gap-5 mt-5">
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Imagen URL externa</mat-label>
-      <input matInput formControlName="imagen_url" class="w-full" />
+      <input class="w-full" formControlName="imagen_url" matInput />
       <mat-error>
-        <app-errors-form-wrapper [errors]="heroesForm.get('imagen_url')?.errors"></app-errors-form-wrapper>
+        <app-errors-form-wrapper
+          [errors]="
+            heroesForm.get('imagen_url')?.errors
+          "></app-errors-form-wrapper>
       </mat-error>
     </mat-form-field>
   </div>
   <div class="flex flex-row gap-5 mt-5">
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Descripción</mat-label>
-    <textarea matInput formControlName="descripcion" class="w-full textarea-size"></textarea>
-    <mat-error>
-      <app-errors-form-wrapper [errors]="heroesForm.get('descripcion')?.errors"></app-errors-form-wrapper>
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Descripción</mat-label>
+      <textarea
+        class="w-full textarea-size"
+        formControlName="descripcion"
+        matInput></textarea>
+      <mat-error>
+        <app-errors-form-wrapper
+          [errors]="
+            heroesForm.get('descripcion')?.errors
+          "></app-errors-form-wrapper>
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="flex flex-row gap-5 mt-5">
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Historia</mat-label>
-      <textarea matInput formControlName="historia" class="w-full textarea-size"></textarea>
+      <textarea
+        class="w-full textarea-size"
+        formControlName="historia"
+        matInput></textarea>
       <mat-error>
-        <app-errors-form-wrapper [errors]="heroesForm.get('historia')?.errors"></app-errors-form-wrapper>
+        <app-errors-form-wrapper
+          [errors]="
+            heroesForm.get('historia')?.errors
+          "></app-errors-form-wrapper>
       </mat-error>
     </mat-form-field>
   </div>
   <mat-dialog-actions class="mat-dialog-actions-button mt-auto">
-    <button mat-raised-button (click)="closeDialog()">Cancelar</button>
+    <button (click)="closeDialog()" mat-raised-button>Cancelar</button>
     <button
-      mat-raised-button
-      [disabled]="heroesForm.invalid"
       (click)="submitForm()"
-      color="primary">
+      [disabled]="heroesForm.invalid"
+      color="primary"
+      mat-raised-button>
       Enviar
     </button>
   </mat-dialog-actions>

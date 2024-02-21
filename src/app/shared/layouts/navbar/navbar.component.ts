@@ -10,17 +10,26 @@ import { AuthService } from '../../../core/auth/services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbar, MatIconModule, MatIconButton, AsyncPipe, TitleCasePipe, MatIcon, MatMenuModule, NgOptimizedImage, RouterLink],
+  imports: [
+    MatToolbar,
+    MatIconModule,
+    MatIconButton,
+    AsyncPipe,
+    TitleCasePipe,
+    MatIcon,
+    MatMenuModule,
+    NgOptimizedImage,
+    RouterLink,
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   private readonly authService = inject(AuthService);
-  private readonly router = inject(Router);
   public username$ = this.authService.getUserName();
+  private readonly router = inject(Router);
 
-
-  public logout(){
+  public logout() {
     sessionStorage.clear();
     alert('You have been logged out');
     this.router.navigate(['/login']);

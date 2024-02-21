@@ -107,21 +107,6 @@ export class HeroesState implements NgxsOnInit {
     ctx: StateContext<HeroesStateModel>,
     { id }: DeleteHeroes
   ) {
-    return this.heroesService.delete(id); /*.pipe(
-      tap(res => {
-        console.log(res);
-        if (res) {
-          const state = ctx.getState();
-          const filteredArray = state.heroes.filter(
-            contents => contents.id !== id
-          );
-
-          ctx.setState({
-            ...state,
-            heroes: filteredArray,
-          });
-        }
-      })
-    );*/
+    return this.heroesService.delete(id);
   }
 }
