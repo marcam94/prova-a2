@@ -6,11 +6,11 @@
     </a>
   <span class="spacer"></span>
   <div class="flex flex-row gap-4">
-  <div class="text-white">
+  <div class="text-black">
     <mat-icon>face</mat-icon>
   </div>
   <span class="text-black">{{ username$ | async | titlecase }}</span>
-  <mat-icon class="text-white cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
+  <mat-icon class="text-black cursor-pointer" [matMenuTriggerFor]="menu">expand_more</mat-icon>
   <mat-menu #menu="matMenu">
     <button (click)="logout()" mat-menu-item>Logout</button>
   </mat-menu>
