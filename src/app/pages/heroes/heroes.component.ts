@@ -23,10 +23,6 @@ import {
 import { Heroes } from '../../core/domain/entity/heroes';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
 import {
-  DialogOpt,
-  DialogService,
-} from '../../shared/components/ui-common/dialog/dialog.service';
-import {
   MatFormField,
   MatLabel,
   MatPrefix,
@@ -38,9 +34,10 @@ import { MatInput } from '@angular/material/input';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeroesLogicService } from './heroes-logic.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { NavbarComponent } from '../../shared/components';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { UpperCaseDirective } from '../../shared/utils/directives/upper-case.directive';
+import { NavbarComponent } from '../../shared';
+import { DialogOpt, DialogService } from '../../shared/ui-common/dialog/dialog.service';
 
 @Component({
   selector: 'app-heroes',

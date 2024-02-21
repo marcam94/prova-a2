@@ -10,13 +10,10 @@ import {
   UpdateHeroes,
 } from '../../shared/store/heroes/heroes.action';
 import { Heroes } from '../../core/domain/entity/heroes';
-import {
-  DialogOpt,
-  DialogService,
-} from '../../shared/components/ui-common/dialog/dialog.service';
 import { HeroesFormComponent } from './heroes-form/heroes-form.component';
-import { DialogComponent } from '../../shared/components';
 import { HeroesState } from '../../shared/store/heroes/heroes.state';
+import { DialogOpt, DialogService } from '../../shared/ui-common/dialog/dialog.service';
+import { DialogComponent } from '../../shared';
 
 @Injectable({
   providedIn: 'root',

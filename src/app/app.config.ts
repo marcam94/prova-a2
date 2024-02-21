@@ -14,11 +14,11 @@ import { NgxsModule } from '@ngxs/store';
 import { HeroesService } from './core/domain/infrastructure/mocks/heroes/heroes.service';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { HeroesState } from './shared/store/heroes/heroes.state';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import {
   LoadingInterceptor,
   spinnerInterceptor,
-} from './shared/components/util-common/interceptors/loading-interceptor/loading-interceptor';
-import { provideAnimations } from '@angular/platform-browser/animations';
+} from './shared/util-common/interceptors/loading-interceptor/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [

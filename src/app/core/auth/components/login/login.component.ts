@@ -16,7 +16,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { AuthService } from '../../services/auth.service';
 import { take } from 'rxjs';
 import { NgClass } from '@angular/common';
-import { ErrorsFormComponent } from '../../../../shared/components';
+import { ErrorsFormComponent } from '../../../../shared';
 
 @Component({
   selector: 'app-login',

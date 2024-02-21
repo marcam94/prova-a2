@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {  HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './shared/components';
 import { LoginComponent } from './core/auth/components';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NavbarComponent } from './shared';
 
 @Component({
   selector: 'app-root',

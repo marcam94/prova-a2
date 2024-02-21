@@ -17,9 +17,9 @@ import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDialogActions } from '@angular/material/dialog';
-import { DialogService } from '../../../shared/components/ui-common/dialog/dialog.service';
 import { MatOption, MatSelect } from '@angular/material/select';
-import { ErrorsFormComponent } from '../../../shared/components';
+import { ErrorsFormComponent } from '../../../shared';
+import { DialogService } from '../../../shared/ui-common/dialog/dialog.service';
 
 @Component({
   selector: 'heroes-form',
