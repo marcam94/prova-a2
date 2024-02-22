@@ -36,7 +36,7 @@ import { HeroesLogicService } from './heroes-logic.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { UpperCaseDirective } from '../../shared/utils/directives/upper-case.directive';
-import { NavbarComponent } from '../../shared';
+import { NavbarComponent, PaginatorComponent } from '../../shared';
 import {
   DialogOpt,
   DialogService,
@@ -76,6 +76,7 @@ import {
     MatMenu,
     MatMenuItem,
     UpperCaseDirective,
+    PaginatorComponent,
   ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',

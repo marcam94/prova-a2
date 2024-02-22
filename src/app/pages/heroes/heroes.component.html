@@ -119,11 +119,12 @@
     </div>
   }
   <div class="fixed bottom-0 left-0 w-full bg-white">
-    <mat-paginator
-      (page)="pageChanged($event)"
+    <app-paginator
       [length]="length"
       [pageIndex]="pageIndex"
-      [pageSize]="pageSize">
-    </mat-paginator>
+      [pageSize]="pageSize"
+      (page)="pageChanged($event)"
+    >
+    </app-paginator>
   </div>
 </div>
