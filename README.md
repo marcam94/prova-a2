@@ -1,27 +1,129 @@
-# ProvaA2
+# Hero DB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Aplicación SPA realizada con Angular 17
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Image](https://miro.medium.com/v2/resize:fit:1400/1*Klh1l7wkoG6PDPb9A5oCHQ.png)
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Aplicación SPA que permite realizar un mantenimiento/consulta sobre super heróes.
 
-## Build
+Realizado con:
+- Angular 17
+- RXJS
+- NGXS Store
+- Angular Material
+- Tailwind
+- Json-server
+- JEST
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Requirements
+- [Node.js](https://nodejs.org/en/) installed on your system.
+- [Angular CLI](https://angular.io/cli) installed globally.
+- [npm](https://www.npmjs.com) installed globally.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run Locally
 
-## Running end-to-end tests
+Clone the project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+  git clone https://github.com/marcam94/prova-a2
+```
 
-## Further help
+Go to the project directory
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+cd my-project
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the server
+
+```bash
+ng serve
+```
+
+Start the api
+
+```bash
+json-server --watch src/app/server/db.json
+```
+
+Run tests
+
+```bash
+ng test
+```
+
+_Check package.json to run scripts_
+
+## Docker
+
+```bash
+docker build -t prova-a2 .
+```
+
+Start the api
+
+```bash
+docker run -p 4201:4200 prova-a2
+```
+
+
+
+## Features
+
+- Sistema básico de autenticación para controlar las rutas con Guards y con logout
+- Consultar todos los héroes
+- Mediante acciones y formularios con validaciones poder crear y editar, además de eliminar
+- Filtrar heroes por parámetro
+- Paginación
+- Componentes reutilizables, diálogo, control de errores del formulario, paginator...
+- Programación reactiva con RXJS
+- Arquitectura limpia
+- A través de un state managment poder separar la lógica del componente y utilizar un servicio que ejecuta las acciones del state para comunicarse con una api
+- API totalmente mockeada con json-server
+- Interceptor para todas las peticiones http que se realicen
+- Permite consultar el detalle y obtener más información del super heroe
+- Cargar componentes de manera lazy en el routing
+- Diseño responsive
+- Test unitarios realizados con JEST
+- Uso de componentes de angular material y estilos con tailwind
+- Aplicación dockerizada
+
+## Screenshots
+ 
+### Login
+![App Screenshot](src/assets/readme-imgs/login.png)
+
+
+### Lista
+![App Screenshot](src/assets/readme-imgs/hero.png)
+
+
+### Detalle
+![App Screenshot](src/assets/readme-imgs/detail-hero.png)
+
+
+### Acciones
+![App Screenshot](src/assets/readme-imgs/actions-hero.png)
+
+
+### Crear
+![App Screenshot](src/assets/readme-imgs/add-hero.png)
+
+
+### Editar
+![App Screenshot](src/assets/readme-imgs/edit-hero.png)
+
+### Filtrar
+![App Screenshot](src/assets/readme-imgs/filter-hero.png)
+
+

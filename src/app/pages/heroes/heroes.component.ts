@@ -84,7 +84,7 @@ import {
 export class HeroesComponent implements OnInit {
   heroes = signal<Heroes[]>([]);
   length = 0;
-  pageSize = 6;
+  pageSize = 8;
   pageIndex = 0;
   title!: string;
   value!: string;

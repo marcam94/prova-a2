@@ -43,14 +43,14 @@
       </h2>
     </div>
   } @else {
-    <div class="flex flex-col items-center flex-grow overflow-y-auto mb-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-16">
+    <div class="flex flex-col items-center flex-grow overflow-y-auto mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-4 md:gap-4 gap-16">
         @for (hero of heroes(); track hero.id) {
           <div
-            class="flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="basis-1/2">
+            class="flex flex-col max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="basis-1/2">
               <img
-                class="rounded-t-lg object-cover h-72 w-96"
+                class="rounded-t-lg object-cover h-56 w-96"
                 src="{{ hero.imagen_url }}"
                 alt="hero-image" />
             </div>

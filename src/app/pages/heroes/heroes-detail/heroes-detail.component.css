@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 768px) {
   .mat-card-content-flex {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
 

@@ -55,7 +55,7 @@ export class HeroesState implements NgxsOnInit {
     return (nameToFind: string) => {
       const toLowerCase = nameToFind.toLowerCase();
       return state.heroes.filter(hero =>
-        hero.nombre.toLowerCase().includes(toLowerCase)
+        hero.alias.toLowerCase().includes(toLowerCase)
       );
     };
   }

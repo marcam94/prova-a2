@@ -6,13 +6,7 @@
           >{{ heroe?.nombre | titlecase }} más conocido como
           {{ heroe?.alias | titlecase }}
         </mat-card-title>
-        <div class="flex flex-row m-auto md:m-0">
-          <button (click)="editHero(heroe)" mat-menu-item>
-            <mat-icon class="transition hover:opacity-70">edit</mat-icon>
-          </button>
-          <button (click)="deleteHero(heroe?.id)" mat-menu-item>
-            <mat-icon class="transition hover:opacity-70">delete</mat-icon>
-          </button>
+        <div class="flex flex-row">
           <button (click)="goBack()" mat-menu-item>
             <mat-icon class="transition hover:opacity-70">arrow_back</mat-icon>
           </button>

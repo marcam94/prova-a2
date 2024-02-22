@@ -43,14 +43,12 @@ import { DialogService } from '../../../shared/ui-common/dialog/dialog.service';
 export class HeroesFormComponent implements OnInit {
   @Output() outputData = new EventEmitter();
   @Input() inputData!: [{ name: string; value: any }];
-  private expression =
-    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(jpg|jpeg|png|gif|webp))$/gi;
   heroesForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     alias: new FormControl('', [Validators.required]),
     descripcion: new FormControl('', [Validators.required]),
     imagen_url: new FormControl('', [
-      Validators.pattern(this.expression),
+      Validators.pattern(/\.(jpg|jpeg|png|webp)$/i),
       Validators.required,
     ]),
     historia: new FormControl('', [Validators.required]),

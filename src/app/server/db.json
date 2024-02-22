@@ -1,247 +1,112 @@
 {
   "Heroes": [
     {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
-      "Tags": "marvel"
+      "Name": "América Chávez",
+      "Alias": "Miss América",
+      "Description": "Procedente de una dimensión utópica, Miss América -junto con Kamala Khan- es uno de los miembros más populares de los Jóvenes Vengadores. Su enorme determinación, su carisma y sus poderosas habilidades serían una adición muy potente a la propuesta de juego de Marvel’s Avengers.",
+      "SrcImg": "https://i.blogs.es/88066f/screenshot_1278/1366_2000.webp",
+      "History": "Procedente de una dimensión utópica, Miss América -junto con Kamala Khan- es uno de los miembros más populares de los Jóvenes Vengadores. Su enorme determinación, su carisma y sus poderosas habilidades serían una adición muy potente a la propuesta de juego de Marvel’s Avengers.",
+      "Tags": "marvel",
+      "id": "d85a"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
+      "Name": "Dr. Henry ‘Hank’ Pym",
+      "Alias": "Ant-Man",
+      "Description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "SrcImg": "https://i.blogs.es/d47bb1/1575268056_844822_1575269216_noticia_normal/1366_2000.webp",
+      "History": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "Tags": "marvel",
+      "id": "6688"
     },
     {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perroddasdasdasdas\nhombre araña perroddasdasdasdas\nhombre araña perroddasdasdasdas",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
+      "Name": "Janet van Dyne",
+      "Alias": "La Avispa",
+      "Description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "SrcImg": "https://i.blogs.es/3908de/screenshot_1291/1366_2000.webp",
+      "History": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
       "Tags": "marvel",
       "id": "3463"
     },
     {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
+      "id": "0e70",
+      "Name": "Wanda Maximoff",
+      "Alias": "Bruja Escarlata",
+      "Description": "Magneto rescató a Wanda y Pietro Maximoff y los incorporó a su Hermandad de Mutantes. Pese a ello, y gracias a la confianza total del Capitán América, los hermanos Maximoff acabarían formando parte de los Vengadores, creando fuertes vínculos dentro del grupo y, a la vez, siendo una de sus aliadas más poderosas.",
+      "SrcImg": "https://i.blogs.es/e791d0/screenshot_1279/1366_2000.webp",
+      "History": "Magneto rescató a Wanda y Pietro Maximoff y los incorporó a su Hermandad de Mutantes. Pese a ello, y gracias a la confianza total del Capitán América, los hermanos Maximoff acabarían formando parte de los Vengadores, creando fuertes vínculos dentro del grupo y, a la vez, siendo una de sus aliadas más poderosas.",
       "Tags": "marvel"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
+      "id": "4b5c",
+      "Name": "Marc Spector",
+      "Alias": "Caballero Luna",
+      "Description": "El dios egipcio Khonshu dio al mercenario Marc Spector habilidades superhumanas con las que sobrevivir y, eventualmente, combatir el crimen. Las similitudes con Batman, de DC Comics, saltan a la vista, pero también juegan a favor del personaje y lo que puede ofrecer en el juego de Square Enix. Tras ayudar a los Vengadores Secretos en Europa se acabaría incorporando a los Vengadores Costa Oeste.",
+      "SrcImg": "https://i.blogs.es/d7a9fd/screenshot_1280/1366_2000.webp",
+      "History": "El dios egipcio Khonshu dio al mercenario Marc Spector habilidades superhumanas con las que sobrevivir y, eventualmente, combatir el crimen. Las similitudes con Batman, de DC Comics, saltan a la vista, pero también juegan a favor del personaje y lo que puede ofrecer en el juego de Square Enix. Tras ayudar a los Vengadores Secretos en Europa se acabaría incorporando a los Vengadores Costa Oeste.",
       "Tags": "marvel"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
+      "id": "7fb5",
+      "Name": "Carol Susan Jane Danvers",
+      "Alias": "La Capitana Marvel",
+      "Description": "su genética es una combinación de genes humanos y kree. Posee la capacidad de volar o absorber y canalizar energía. Además, dispone de una fuerza y resistencia superhumanas.",
+      "SrcImg": "https://i.blogs.es/23e57f/life-of-captain-marvel-origin-comic-art/1366_2000.webp",
+      "History": "Presentada originalmente como Miss Marvel, Carol Danvers es una extraordinaria superhumana con poderes que pueden alcanzar proporciones cósmicas. Su ingreso a los vengadores fue durante una batalla desesperada contra Ultrón. Tras numerosos actos heróicos, el propio Capitán América insistió en que se había ganado el derecho a usar el título de capitana.",
       "Tags": "marvel"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
+      "id": "adcc",
+      "Name": "Doreen Green",
+      "Alias": "Chica Ardilla",
+      "Description": "mutante con velocidad, resistencia, fuerza, agilidad y reflejos superhumanos. Puede comunicarse con ardillas y dispone de garras, púas retráctiles y una cola prensil.",
+      "SrcImg": "https://i.blogs.es/a5b38d/415441_973362/1366_2000.webp",
+      "History": "La jovencísima Doreen Green (quien trabaja a tiempo parcial como niñera para Jessica Jones y Luke Cage) idolatra a Iron Man al punto en el que decidió emprender su propia carrera como superhéroe.  Con el tiempo, su ayuda fue inestimable para acabar con amenazas del calibre del Dr. Muerte, abriéndole las puertas a los Vengadores Grandes Lagos y, posteriormente, los Nuevos Vengadores.",
       "Tags": "marvel"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
+      "id": "b1a2",
+      "Name": "Stephen Vincent Extraño",
+      "Alias": "Dr. Extraño",
+      "Description": "Experto cirujano. Maestro con las artes de la magia y poseedor de una amplia colección de artefactos místicos. El Dr. Extraño puede realizar proyecciones astrales, crear ilusiones, es telépata y está adiestrado en las artes marciales.",
+      "SrcImg": "https://i.blogs.es/8379ae/screenshot_1282/1366_2000.webp",
+      "History": "Stephen Extraño no creía en la magia hasta que el destino y un accidente le llevaron ante el Anciano. Su prodigioso talento y su determinación a la hora de acabar con las amenazas mágicas lo acabarán convirtiendo en el Hechicero Supremo y, más tarde, en miembro fundador de los Defensores.",
       "Tags": "marvel"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
+      "Name": "Clark Kent",
+      "Alias": "Superman",
+      "Description": "Solamente él podía encabezar esta lista. El Hombre de Acero, con su sentido inquebrantable de la justicia y poderes que hacen que todos los demás superhéroes parezcan unos principiantes.",
+      "SrcImg": "https://lafrikileria.com/blog/wp-content/uploads/2023/11/Superman-dc-comics.jpg",
+      "History": "Solamente él podía encabezar esta lista. El Hombre de Acero, con su sentido inquebrantable de la justicia y poderes que hacen que todos los demás superhéroes parezcan unos principiantes.",
+      "Tags": "dc",
+      "id": "0726"
     },
     {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
+      "Name": "Bruce Wayne",
+      "Alias": "Batman",
+      "Description": "El Caballero Oscuro (y posiblemente el tipo más rico de Gotham 🤑) ha demostrado con creces que no se necesitan superpoderes para ser un héroe. Con su inteligencia y sus gadgets, tiene de sobra.",
+      "SrcImg": "https://lafrikileria.com/blog/wp-content/uploads/2023/11/Batman-dc-comics.jpg",
+      "History": "El Caballero Oscuro (y posiblemente el tipo más rico de Gotham 🤑) ha demostrado con creces que no se necesitan superpoderes para ser un héroe. Con su inteligencia y sus gadgets, tiene de sobra.",
+      "Tags": "dc",
+      "id": "cbed"
     },
     {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
-      "Tags": "marvel"
+      "Name": "Linterna Verde",
+      "Alias": "Linterna Verde",
+      "Description": "En el día más brillante y la noche más oscura, Hal Jordan está siempre listo. Como Linterna Verde, su anillo le concede la voluntad para enfrentar cualquier amenaza, incluso si es una entidad cósmica con algún siniestro plan.",
+      "SrcImg": "https://lafrikileria.com/blog/wp-content/uploads/2023/11/Linterna-Verde-dc-comics-1024x576.jpg",
+      "History": "En el día más brillante y la noche más oscura, Hal Jordan está siempre listo. Como Linterna Verde, su anillo le concede la voluntad para enfrentar cualquier amenaza, incluso si es una entidad cósmica con algún siniestro plan.",
+      "Tags": "dc",
+      "id": "be40"
     },
     {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
-      "Tags": "marvel"
-    },
-    {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
-      "Tags": "marvel"
-    },
-    {
-      "id": "6688",
-      "Name": "jose",
-      "Alias": "a",
-      "Description": "a",
-      "SrcImg": "",
-      "History": "a"
-    },
-    {
-      "Name": "Piter porker",
-      "Alias": "Spider man",
-      "Description": "hombre araña perrodd",
-      "SrcImg": "https://img.rtve.es/i/spiderman-uno-superheroes-mas-populares-todos-tiempos_1442912664626.jpg",
-      "History": "hombre araña",
-      "Tags": "marvel",
-      "id": "3463"
-    },
-    {
-      "id": "d85a",
-      "Name": "marc",
-      "Alias": "marco",
-      "Description": "asd",
-      "SrcImg": "https://www.marca.com/futbol/real-madrid/2024/02/20/65cd30b6ca47413a7b8b457d.html",
-      "History": "ad",
-      "Tags": "marvel"
+      "Name": " Selina Kyle",
+      "Alias": "Catwoman",
+      "Description": "De villana a antiheroína, Catwoman ha reformado su imagen. Con la agilidad, reflejos y velocidad propias de un felino (y habilidades ladronas 😂), Selina Kyle añade el toque de intriga a esta lista de superhéroes de DC Comics.",
+      "SrcImg": "https://lafrikileria.com/blog/wp-content/uploads/2023/11/Catwoman-dc-comics.jpg",
+      "History": "De villana a antiheroína, Catwoman ha reformado su imagen. Con la agilidad, reflejos y velocidad propias de un felino (y habilidades ladronas 😂), Selina Kyle añade el toque de intriga a esta lista de superhéroes de DC Comics.",
+      "Tags": "dc",
+      "id": "1725"
     }
   ]
 }
